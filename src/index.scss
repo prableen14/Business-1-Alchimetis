@@ -1,0 +1,31 @@
+$primary-blue: #2d55b4;
+$secondary-blue: #eff2fb;
+$primary-grey: #38393c;
+$secondary-grey: #abaeb7;
+$white: #ffffff;
+$tertiary-blue: #c0c2c9;
+$primary-green: #9cec5b;
+$bold-6: 600;
+$bold-5: 500;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h,
+h2,
+h3,
+h4,
+h5,
+div {
+  padding: 0;
+}
