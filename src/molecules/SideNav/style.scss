@@ -1,0 +1,10 @@
+@import "../../index.scss";
+#sideNav {
+  width: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: $primary-blue;
+  border-radius: 0 50px 50px 0;
+}
