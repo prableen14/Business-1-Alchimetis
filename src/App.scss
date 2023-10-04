@@ -1,4 +1,16 @@
 @import "index.scss";
-body {
-  color: $primary-blue;
+.App {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  background-color: $secondary-blue;
+  .Pages {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: calc(100vh - 40px);
+    width: calc(100% - 360px);
+    padding: 20px;
+  }
 }
