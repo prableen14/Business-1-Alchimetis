@@ -1,7 +1,7 @@
 import React from "react";
 import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
-import { RevenueHistogram } from "../../atoms/RevenueHistogram/index.js";
+import { RevenueHistogram } from "../../atoms/RevenueHistogram";
 
 const Dashboard = (props) => {
   return (
