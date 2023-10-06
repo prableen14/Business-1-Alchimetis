@@ -46,6 +46,19 @@
     }
   }
   .navBottom {
-    margin: 50px 30px;
+    margin-bottom: 50px;
+    .pagesNav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 24px;
+      padding: 10px 30px;
+      color: $tertiary-blue;
+      color: $secondary-blue;
+      img {
+        margin-right: 10px;
+      }
+    }
   }
 }

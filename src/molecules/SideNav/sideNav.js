@@ -5,6 +5,8 @@ import HomeIcon from "../../assets/images/Home.svg";
 import CustomersIcon from "../../assets/images/Customers.svg";
 import AnalysticsIcon from "../../assets/images/Analytics.svg";
 import ReportIcon from "../../assets/images/Report.svg";
+import SettingIcon from "../../assets/images/Settings.svg";
+import LogoutIcon from "../../assets/images/Logout.svg";
 
 const SideNav = (props) => {
   return (
@@ -43,7 +45,16 @@ const SideNav = (props) => {
           </div>
         </div>
       </div>
-      <div className='navBottom'>signout</div>
+      <div className='navBottom'>
+        <div className='pagesNav'>
+          <img src={SettingIcon} alt='SettingIcon' />
+          <span>Settings</span>
+        </div>
+        <div className='pagesNav'>
+          <img src={LogoutIcon} alt='SettingIcon' />
+          <span>Logout</span>
+        </div>
+      </div>
     </div>
   );
 };
