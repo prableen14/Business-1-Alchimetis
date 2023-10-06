@@ -2,7 +2,7 @@ import React from "react";
 
 import "./style.scss";
 
-import UpTrend from "../../assets/Up Trend.svg";
+import UpTrend from "../../assets/images/Up Trend.svg";
 
 export function RevenueHistogram() {
   const values = [50, 60, 30, 70, 80, 90, 100, 20, 10];
