@@ -5,8 +5,15 @@ $secondary-grey: #abaeb7;
 $white: #ffffff;
 $tertiary-blue: #c0c2c9;
 $primary-green: #9cec5b;
+$bold-9: 900;
+$bold-8: 800;
+$bold-7: 700;
 $bold-6: 600;
 $bold-5: 500;
+$bold-4: 400;
+$bold-3: 300;
+$bold-2: 200;
+$bold-1: 100;
 
 body {
   background-color: $secondary-blue;
@@ -22,7 +29,7 @@ code {
     monospace;
 }
 
-h,
+h1,
 h2,
 h3,
 h4,
