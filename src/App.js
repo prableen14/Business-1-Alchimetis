@@ -5,7 +5,7 @@ import { SideNav } from "./molecules/index";
 function App() {
   return (
     <div className='App'>
-      <SideNav />
+      <SideNav page='Dashboard' />
       <div className='Pages'>
         <Dashboard />
       </div>
