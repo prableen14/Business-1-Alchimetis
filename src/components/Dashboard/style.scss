@@ -1,0 +1,25 @@
+@import "../../index.scss";
+
+.notification {
+    display: flex;
+    padding: 50px 0;
+    gap: 30px;
+
+    &__chat {
+        width: 55%;
+        background-color: $white;
+        padding: 20px 30px;
+        border-radius: 20px;
+
+        .message-preview:not(:last-child) {
+            padding-bottom: 15px;
+        }
+    }
+    
+    &__todo {
+        width: 35%;
+        padding: 20px 25px;
+        border-radius: 20px;
+        background-color: $white;
+    }
+}
