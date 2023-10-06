@@ -1,0 +1,36 @@
+@import "../../index.scss";
+
+.text-image {
+    display: flex;
+    background: $white; //should delete this later
+    align-items: center;
+
+    &__img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: $secondary-blue;
+        margin-right: 20px;
+
+        img {
+            width: 24px;
+            height: 24px;
+            
+            svg {
+                color: $primary-blue;
+
+            }
+        }
+    }
+
+    &__text {
+        &-title {
+            font-weight: $bold-6;
+            font-size: 14px
+        }
+        &-time {
+            color: $secondary-grey;
+            font-size: 10px;
+        }
+    }
+}
