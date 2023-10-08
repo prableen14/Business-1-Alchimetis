@@ -1,5 +1,5 @@
 import React from "react";
-import {Filter} from "../../atoms/index.js";
+import {Filter, Profile} from "../../atoms/index.js";
 import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import { RevenueHistogram } from "../../atoms/RevenueHistogram";
@@ -8,7 +8,15 @@ import "./style.scss";
 const Dashboard = (props) => {
   return (
     <div>
-    <Filter/>
+      <div className="dashboard-banner">
+        <div className="dashboard-banner_background"></div>
+        <div className="dashboard-banner_filter">
+          <Filter/>
+        </div>
+        <div class="dashboard-banner_profile">
+          <Profile/>
+        </div>
+      </div>
       <Title title='Dashboard' size='large' subtitle={"Welcome back, Rahul"} />
       <Title title='Recent Messages' size='medium' />
       <TextAndImage
