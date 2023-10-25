@@ -1,6 +1,6 @@
 @import "../../index.scss";
 
-.revenue-histogram {
+.histogram {
   padding: 20px;
   display: flex;
   align-items: center;
@@ -59,8 +59,22 @@
       display: flex;
       align-items: flex-end;
 
-      &-bar {
-        background-color: $primary-blue;
+      &-bar-blue {
+        background: linear-gradient(
+          to top,
+          $secondary-blue 0%,
+          $primary-blue 100%
+        );
+        border-radius: 8px;
+        width: 100%;
+      }
+
+      &-bar-purple {
+        background: linear-gradient(
+          to top,
+          $secondary-blue 0%,
+          $primary-purple 100%
+        );
         border-radius: 8px;
         width: 100%;
       }
