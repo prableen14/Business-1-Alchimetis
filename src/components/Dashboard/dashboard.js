@@ -8,15 +8,6 @@ import "./style.scss";
 const Dashboard = (props) => {
   return (
     <div className='DashBoard'>
-      {/* <div className='dashboard-banner'>
-        <div className='dashboard-banner_background'></div>
-        <div className='dashboard-banner_filter'>
-          <Filter />
-        </div>
-        <div class='dashboard-banner_profile'>
-          <Profile />
-        </div>
-      </div> */}
       <Title title='Dashboard' size='large' subtitle={"Welcome back, Rahul"} />
       <Title title='Recent Messages' size='medium' />
 
