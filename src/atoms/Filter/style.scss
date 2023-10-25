@@ -1,26 +1,24 @@
 @import "../../index.scss";
 .filter-frame {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(0deg, #EFF2FB, #EFF2FB),
-                linear-gradient(0deg, rgba(45, 85, 180, 0.1), rgba(45, 85, 180, 0.1));
-    padding: 10px 89px 10px 14px;
-    border-radius: 10px;
-    width: 238px;
-    height: 56px;
-    top: 40px;
-    left: 368px;
-    border: 1px solid #ccc;
-  }
-  
+  display: flex;
+  align-items: center;
+  background: linear-gradient(0deg, #eff2fb, #eff2fb),
+    linear-gradient(0deg, rgba(45, 85, 180, 0.1), rgba(45, 85, 180, 0.1));
+  padding: 0px 15px;
+  border-radius: 10px;
+  width: 238px;
+  height: 56px;
+  top: 40px;
+  left: 368px;
+  border: 1px solid #ccc;
   .filter-icon {
-    width:30px;
-    height:25.5px;
+    width: 30px;
+    height: 25.5px;
     top: 5.25px;
     left: 3px;
-    border:1.5px;
+    border: 1.5px;
   }
-  
+
   .filter-text {
     font-size: 20px;
     font-weight: $bold-5;
@@ -33,5 +31,4 @@
     margin-left: 70px;
     color: $secondary-grey;
   }
-  
-  
+}
