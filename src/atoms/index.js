@@ -4,8 +4,6 @@ import Profile from "./Profile/profile.jsx";
 import Filter from "./Filter/filter.js";
 import TextAndImage from "./TextAndImage/textAndImage.js";
 import MessagePreview from "./MessagePreview/messagePreview.js";
+import Textbox from "./TextBox/textbox.js";
 
-export { Title, Filter, TextAndImage, MessagePreview, Profile };
-
-
-
+export { Title, Filter, TextAndImage, MessagePreview, Profile, Textbox };
