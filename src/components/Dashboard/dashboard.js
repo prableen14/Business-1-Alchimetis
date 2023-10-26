@@ -3,6 +3,7 @@ import { Filter, Profile } from "../../atoms/index.js";
 import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import Histogram from "../../atoms/Histogram/index.js";
+import LineGraph from "../../atoms/LineGraph/index.js";
 import "./style.scss";
 
 const Dashboard = (props) => {
@@ -23,6 +24,40 @@ const Dashboard = (props) => {
           label="Expenses"
           trend="down"
           color="purple"
+        />
+
+        <LineGraph
+          data={[
+            {
+              day: "Monday",
+              sales: 2400,
+            },
+            {
+              day: "Tuesday",
+              sales: 1398,
+            },
+            {
+              day: "Wednesday",
+              sales: 1000,
+            },
+            {
+              day: "Thursday",
+              sales: 3908,
+            },
+            {
+              day: "Friday",
+              sales: 4800,
+            },
+            {
+              day: "Saturday",
+              sales: 3800,
+            },
+            {
+              day: "Sunday",
+              sales: 4300,
+            },
+          ]}
+          label="Sales"
         />
       </div>
 
