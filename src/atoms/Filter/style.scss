@@ -1,7 +1,9 @@
 @import "../../index.scss";
-.filter-frame {
+.filter-frame { 
   display: flex;
   align-items: center;
+  cursor: pointer;
+   user-select: none;
   background: linear-gradient(0deg, #eff2fb, #eff2fb),
     linear-gradient(0deg, rgba(45, 85, 180, 0.1), rgba(45, 85, 180, 0.1));
   padding: 0px 15px;
@@ -30,5 +32,37 @@
     left: 90px;
     margin-left: 70px;
     color: $secondary-grey;
+  }
+}
+.filter-dropdown {
+ position:absolute;
+  top: 100%; 
+  display: none;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 238px;
+  padding: 10px;
+  z-index: 1; 
+
+  &.open {
+    display: block; 
+    animation: slideDown 0.3s ease;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
