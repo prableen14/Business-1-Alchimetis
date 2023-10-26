@@ -24,4 +24,10 @@
       background-color: $white;
     }
   }
+
+  .analytics-group {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
 }
