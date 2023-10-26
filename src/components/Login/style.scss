@@ -1,2 +1,25 @@
+@import "../../index.scss";
 .Login-Page {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(119.36deg, #acc1ff 0%, #8e6aba 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-box {
+    background-color: $white;
+    border-radius: 20px;
+    padding: 40px;
+    #login-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        margin-right: 10px;
+      }
+    }
+    .btn {
+      width: 100%;
+    }
+  }
 }
