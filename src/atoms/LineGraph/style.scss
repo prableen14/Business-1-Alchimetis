@@ -1,6 +1,6 @@
 @import "../../index.scss";
 
-.histogram {
+.line-graph {
   padding: 20px;
   display: flex;
   align-items: center;
@@ -49,35 +49,5 @@
     width: 100%;
     height: 100%;
     justify-content: space-between;
-
-    &-bar-container {
-      height: 100%;
-      background-color: $secondary-blue;
-      border-radius: 8px;
-      overflow: hidden;
-      width: 16px;
-      display: flex;
-      align-items: flex-end;
-
-      &-bar-blue {
-        background: linear-gradient(
-          to top,
-          $secondary-blue 0%,
-          $primary-blue 100%
-        );
-        border-radius: 8px;
-        width: 100%;
-      }
-
-      &-bar-purple {
-        background: linear-gradient(
-          to top,
-          $secondary-blue 0%,
-          $primary-purple 100%
-        );
-        border-radius: 8px;
-        width: 100%;
-      }
-    }
   }
 }

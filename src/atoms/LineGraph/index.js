@@ -16,11 +16,11 @@ const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
 export default function LineGraph({ data, label }) {
   return (
-    <div className="histogram">
-      <div className="histogram-header">
-        <div className="histogram-header-value-wrapper">
-          <div className="histogram-header-title">{label}</div>
-          <div className="histogram-header-value">
+    <div className="line-graph">
+      <div className="line-graph-header">
+        <div className="line-graph-header-value-wrapper">
+          <div className="line-graph-header-title">{label}</div>
+          <div className="line-graph-header-value">
             $
             {data
               .reduce((prev, curr) => prev + curr.sales, 0)
@@ -29,10 +29,10 @@ export default function LineGraph({ data, label }) {
           </div>
         </div>
 
-        <img src={Store} alt="Store icon" className="histogram-header-icon" />
+        <img src={Store} alt="Store icon" className="line-graph-header-icon" />
       </div>
 
-      <div className="histogram-chart">
+      <div className="line-graph-chart">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart width={300} height={100} data={data}>
             <XAxis dataKey="day" tickFormatter={(tick) => tick[0]} />
