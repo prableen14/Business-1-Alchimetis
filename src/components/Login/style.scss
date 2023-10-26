@@ -9,9 +9,7 @@
   &-box {
     background-color: $white;
     border-radius: 20px;
-    width: 500px;
-    height: 500px;
-    padding: 20px;
+    padding: 40px;
     #login-header {
       display: flex;
       justify-content: center;
@@ -19,6 +17,9 @@
       img {
         margin-right: 10px;
       }
+    }
+    .btn {
+      width: 100%;
     }
   }
 }

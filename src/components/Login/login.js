@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { Title, Textbox } from "../../atoms";
+import { Title, Textbox, Button } from "../../atoms";
 import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 
 const Login = (props) => {
@@ -12,7 +12,11 @@ const Login = (props) => {
           <Title title='Ecoforce' size='large' />
         </div>
         <div>
-          <Textbox />
+          <Textbox placeholder={"Enter username"} label='Username' />
+          <Textbox placeholder={"Enter password"} label='Password' />
+        </div>
+        <div>
+          <Button text='Login' />
         </div>
       </div>
     </div>

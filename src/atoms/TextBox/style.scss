@@ -1,7 +1,19 @@
 @import "../../index.scss";
 .TextBox {
+  display: flex;
+  flex-direction: column;
   #textfield {
     padding: 8px 10px;
-    width: 100%;
+    min-width: 350px;
+    border: #38393c 1px solid;
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: "Poppins";
+    margin-bottom: 10px;
+  }
+  #textfield-label {
+    margin: 10px 0;
+    font-weight: $bold-7;
+    color: $primary-blue;
   }
 }

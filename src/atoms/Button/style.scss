@@ -1,0 +1,17 @@
+@import "../../index.scss";
+.buttonComp {
+  .btn {
+    background-color: $primary-blue;
+    color: $white;
+    border: 1px solid $primary-blue;
+    text-align: center;
+    font-weight: $bold-7;
+    padding: 10px;
+    border-radius: 5px;
+    &:hover {
+      background-color: $white;
+      color: $primary-blue;
+      font-weight: $bold-7;
+    }
+  }
+}
