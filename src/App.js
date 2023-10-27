@@ -6,7 +6,7 @@ import Router from "./router/router";
 const App = (props) => {
   return (
     <div className="App">
-      {window?.location?.pathname === "/login" ||
+      {window?.location?.pathname === "/login" || window?.location?.pathname === "/register" ||
       window?.location?.pathname === "/" ? null : (
         <>
           <SideNav page="Dashboard" />
