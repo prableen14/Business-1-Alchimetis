@@ -5,18 +5,19 @@ import Router from "./router/router";
 
 const App = (props) => {
   return (
-    <div className='App'>
-      {window?.location?.pathname !== "/login" && (
-        <>
-          <SideNav page='Dashboard' />
-          <div className='topnav'>
-            <div className={"topnav-content"}>
-              <Filter />
-              <Profile />
+    <div className="App">
+      {window?.location?.pathname !== "/login" ||
+        (window?.location?.pathname !== "/" && (
+          <>
+            <SideNav page="Dashboard" />
+            <div className="topnav">
+              <div className={"topnav-content"}>
+                <Filter />
+                <Profile />
+              </div>
             </div>
-          </div>
-        </>
-      )}
+          </>
+        ))}
       <Router />
     </div>
   );
