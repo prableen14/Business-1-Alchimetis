@@ -18,12 +18,13 @@ class RouterClass extends Component {
       >
         <Suspense fallback={<div>Loading</div>}>
           <Routes>
+            <Route exact path="/" element={<Login history={history} />} />
             <Route
               exact
-              path='/dashboard'
+              path="/dashboard"
               element={<Dashboard history={history} />}
             />
-            <Route exact path='/login' element={<Login history={history} />} />
+            <Route exact path="/login" element={<Login history={history} />} />
           </Routes>
         </Suspense>
       </div>
