@@ -4,17 +4,18 @@ import Form from "react-bootstrap/Form";
 
 const Textbox = (props) => {
   return (
-    <div className='TextBox'>
+    <div className="TextBox">
       {props.label && (
-        <Form.Label id='textfield-label'>{props?.label}</Form.Label>
+        <Form.Label id="textfield-label">{props?.label}</Form.Label>
       )}
       <Form.Control
         type={props?.type ? props.type : "text"}
-        id='textfield'
+        id="textfield"
         placeholder={props?.placeholder}
         value={props?.value}
         onChange={props?.onChange}
         disabled={props?.disabled}
+        {...props}
       />
     </div>
   );
