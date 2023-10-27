@@ -14,14 +14,16 @@ class RouterClass extends Component {
     return (
       <div
         className={
-          (history?.location?.pathname === "/login" || history?.location?.pathname === "/register") ? "LoginPage" : "Pages"
+          (history?.location?.pathname === "/login" || history?.location?.pathname === "/register"
+          || history?.location?.pathname === "/") ? "LoginPage" : "Pages"
         }
       >
         <Suspense fallback={<div>Loading</div>}>
-          <Routes>
+          <Routes> 
+            <Route exact path="/" element={<Login history={history} />} />
             <Route
               exact
-              path='/dashboard'
+              path="/dashboard"
               element={<Dashboard history={history} />}
             />
             <Route exact path='/login' element={<Login history={history} />} />
