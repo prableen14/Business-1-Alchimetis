@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 
 const Dashboard = lazy(() => import("../components/Dashboard/dashboard.js"));
 const Login = lazy(() => import("../components/Login/login.js"));
+const Register = lazy(() => import("../components/Login/register.js"));
 
 class RouterClass extends Component {
   render() {
@@ -13,18 +14,20 @@ class RouterClass extends Component {
     return (
       <div
         className={
-          history?.location?.pathname === "/dashboard" ? "Pages" : "LoginPage"
+          (history?.location?.pathname === "/login" || history?.location?.pathname === "/register"
+          || history?.location?.pathname === "/") ? "LoginPage" : "Pages"
         }
       >
         <Suspense fallback={<div>Loading</div>}>
-          <Routes>
+          <Routes> 
             <Route exact path="/" element={<Login history={history} />} />
             <Route
               exact
               path="/dashboard"
               element={<Dashboard history={history} />}
             />
-            <Route exact path="/login" element={<Login history={history} />} />
+            <Route exact path='/login' element={<Login history={history} />} />
+            <Route exact path='/register' element={<Register history={history} />} />
           </Routes>
         </Suspense>
       </div>

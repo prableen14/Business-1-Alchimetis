@@ -1,4 +1,5 @@
 @import "../../index.scss";
+
 .Login-Page {
   width: 100vw;
   height: 100vh;
@@ -6,20 +7,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
   &-box {
     background-color: $white;
     border-radius: 20px;
     padding: 40px;
+
     #login-header {
       display: flex;
       justify-content: center;
       align-items: center;
+
       img {
         margin-right: 10px;
       }
     }
+
     .btn {
       width: 100%;
+    }
+
+    .login-terms {
+      display: flex;
+      margin: 10px 0;
+    }
+  }
+
+  &-have-acc {
+    display: flex;
+    margin-top: 20px;
+
+    div {
+      margin: 0 10px;
+      color: $primary-blue;
+      background: none;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
