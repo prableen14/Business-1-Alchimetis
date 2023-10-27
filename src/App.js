@@ -6,18 +6,18 @@ import Router from "./router/router";
 const App = (props) => {
   return (
     <div className="App">
-      {window?.location?.pathname !== "/login" ||
-        (window?.location?.pathname !== "/" && (
-          <>
-            <SideNav page="Dashboard" />
-            <div className="topnav">
-              <div className={"topnav-content"}>
-                <Filter />
-                <Profile />
-              </div>
+      {window?.location?.pathname === "/login" ||
+      window?.location?.pathname === "/" ? null : (
+        <>
+          <SideNav page="Dashboard" />
+          <div className="topnav">
+            <div className={"topnav-content"}>
+              <Filter />
+              <Profile />
             </div>
-          </>
-        ))}
+          </div>
+        </>
+      )}
       <Router />
     </div>
   );

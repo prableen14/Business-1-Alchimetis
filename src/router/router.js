@@ -13,9 +13,7 @@ class RouterClass extends Component {
     return (
       <div
         className={
-          history?.location?.pathname === "/login" || "/"
-            ? "LoginPage"
-            : "Pages"
+          history?.location?.pathname === "/dashboard" ? "Pages" : "LoginPage"
         }
       >
         <Suspense fallback={<div>Loading</div>}>
