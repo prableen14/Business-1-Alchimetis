@@ -6,7 +6,7 @@ import TextAndImage from "./TextAndImage/textAndImage.js";
 import MessagePreview from "./MessagePreview/messagePreview.js";
 import Textbox from "./TextBox/textbox.js";
 import Button from "./Button/button.js";
-
+import Alert from "./AlertBox/alert.js";
 export {
   Title,
   Filter,
@@ -15,4 +15,5 @@ export {
   Profile,
   Textbox,
   Button,
+  Alert,
 };
