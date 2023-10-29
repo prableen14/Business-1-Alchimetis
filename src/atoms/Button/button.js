@@ -5,7 +5,11 @@ import "./style.scss";
 const ButtonComp = (props) => {
   return (
     <div className='buttonComp'>
-      <Button size='lg' variant={props?.variant || "primary"}>
+      <Button
+        size='lg'
+        variant={props?.variant || "primary"}
+        onClick={props?.onClick}
+      >
         {props?.text}
       </Button>
     </div>
