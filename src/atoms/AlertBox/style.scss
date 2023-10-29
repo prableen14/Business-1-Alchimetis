@@ -6,9 +6,13 @@
   }
   
   .description-container {
-    margin: 15px 20px;
+    margin: 5px 5px;
+    max-width: 300px; 
+    word-wrap: break-word; 
   }
-  
+  .description-text{
+    font-size: 90%;
+  }
   .symbol-close-link {
     margin-top: -10px;
     cursor: pointer;
@@ -16,7 +20,6 @@
   .alert-warning {
     color: #976f1a;
     background-color: #fef1d5;
-   // border-color: #feeac0;
 }
 
 .alert {
