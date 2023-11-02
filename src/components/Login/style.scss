@@ -31,16 +31,38 @@
     .btn {
       width: 100%;
     }
-
+    .login-terms-forgot {
+      display: flex;
+      justify-content: space-between;
+    }
     .login-terms {
       display: flex;
       margin: 10px 0;
+      font-weight: $bold-6;
+      font-size: 14px;
+      align-items: center;
+      justify-content: flex-start;
+      color: $primary-grey;
+    }
+    .forgot-password-link {
+      color: $secondary-grey;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      font-weight: $bold-4;
+      cursor: pointer;
+      svg {
+        font-size: 16px;
+        margin-right: 5px;
+      }
     }
   }
 
   &-have-acc {
     display: flex;
     margin-top: 20px;
+    font-size: 16px;
+    color: $primary-grey;
 
     div {
       margin: 0 10px;
