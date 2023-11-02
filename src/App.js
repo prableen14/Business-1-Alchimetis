@@ -1,13 +1,16 @@
+import React from "react";
 import "./App.scss";
 import { Filter, Profile } from "./atoms/index.js";
 import { SideNav } from "./molecules/index";
 import Router from "./router/router";
+import { useLocation } from "react-router-dom";
 
 const App = (props) => {
+  const location = useLocation();
+
   return (
     <div className="App">
-      {window?.location?.pathname === "/login" || window?.location?.pathname === "/register" ||
-      window?.location?.pathname === "/" ? null : (
+      {location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot-password" || location.pathname === "/" ? null : (
         <>
           <SideNav page="Dashboard" />
           <div className="topnav">
