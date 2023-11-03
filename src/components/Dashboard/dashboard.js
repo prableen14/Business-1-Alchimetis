@@ -1,12 +1,20 @@
 import React from "react";
-import { Filter, Profile } from "../../atoms/index.js";
 import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import Histogram from "../../atoms/Histogram/index.js";
 import LineGraph from "../../atoms/LineGraph/index.js";
 import "./style.scss";
 
+// CSV Parser component and hook
+import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
+import useCsvParser from "../../hooks/useCsvParser.js";
+
 const Dashboard = (props) => {
+
+  const { csv, setCSV } = useCsvParser('/temp.csv');
+
+  console.log(csv)
+
   return (
     <div className="DashBoard">
       <Title title="Dashboard" size="large" subtitle={"Welcome back, Rahul"} />

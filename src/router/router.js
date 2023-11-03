@@ -10,7 +10,6 @@ const ForgotPassword = lazy(() => import("../components/Login/forgot-password.js
 class RouterClass extends Component {
   render() {
     const history = createBrowserHistory();
-    console.log(history?.location);
     return (
       <div
         className={
