@@ -35,8 +35,9 @@ export default function BarGraph({ data, label }) {
             <Tooltip />
             <Bar
               dataKey="sales"
-              fill="#8884d8"
+              fill="#2d55b4"
               activeBar={<Rectangle fill="pink" />}
+              radius={16}
             />
           </BarChart>
         </ResponsiveContainer>

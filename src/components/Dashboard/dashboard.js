@@ -95,31 +95,30 @@ const Dashboard = (props) => {
         <BarGraph
           data={[
             {
-              name: "Monday",
               sales: 2400,
             },
             {
-              name: "Tuesday",
               sales: 1398,
             },
             {
-              name: "Wednesday",
               sales: 1000,
             },
             {
-              name: "Thursday",
               sales: 3908,
             },
             {
-              name: "Friday",
               sales: 4800,
             },
             {
-              name: "Saturday",
               sales: 3800,
             },
             {
-              name: "Sunday",
+              sales: 4300,
+            },
+            {
+              sales: 3800,
+            },
+            {
               sales: 4300,
             },
           ]}
