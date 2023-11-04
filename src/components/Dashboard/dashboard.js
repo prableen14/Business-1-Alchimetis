@@ -3,6 +3,7 @@ import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import Histogram from "../../atoms/Histogram/index.js";
 import LineGraph from "../../atoms/LineGraph/index.js";
+import BarGraph from "../../atoms/BarGraph/index.js";
 import PieChart from "../../atoms/PieChart/index.js";
 import "./style.scss";
 
@@ -86,6 +87,40 @@ const Dashboard = (props) => {
             {
               name: "TEST_4",
               value: 5,
+            },
+          ]}
+          label="Sales"
+        />
+
+        <BarGraph
+          data={[
+            {
+              name: "Monday",
+              sales: 2400,
+            },
+            {
+              name: "Tuesday",
+              sales: 1398,
+            },
+            {
+              name: "Wednesday",
+              sales: 1000,
+            },
+            {
+              name: "Thursday",
+              sales: 3908,
+            },
+            {
+              name: "Friday",
+              sales: 4800,
+            },
+            {
+              name: "Saturday",
+              sales: 3800,
+            },
+            {
+              name: "Sunday",
+              sales: 4300,
             },
           ]}
           label="Sales"
