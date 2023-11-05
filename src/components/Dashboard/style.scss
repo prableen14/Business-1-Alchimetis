@@ -4,10 +4,11 @@
   .notification {
     display: flex;
     padding: 50px 0;
-    gap: 30px;
-
-    &__chat {
+    justify-content: space-between;
+    &_chatsub {
       width: 55%;
+    }
+    &__chat {
       background-color: $white;
       padding: 20px 30px;
       border-radius: 20px;
@@ -16,9 +17,10 @@
         padding-bottom: 15px;
       }
     }
-
+    &_todosub {
+      width: 40%;
+    }
     &__todo {
-      width: 35%;
       padding: 20px 25px;
       border-radius: 20px;
       background-color: $white;
@@ -26,8 +28,9 @@
   }
 
   .analytics-group {
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: calc((100% - (340px * 3)) / 2);
   }
 }

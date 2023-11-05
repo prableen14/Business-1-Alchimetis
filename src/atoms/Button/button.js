@@ -6,7 +6,7 @@ const ButtonComp = (props) => {
   return (
     <div className='buttonComp'>
       <Button
-        size='lg'
+        size='md'
         variant={props?.variant || "primary"}
         onClick={props?.onClick}
       >

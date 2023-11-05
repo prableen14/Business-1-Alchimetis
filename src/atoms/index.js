@@ -7,6 +7,10 @@ import MessagePreview from "./MessagePreview/messagePreview.js";
 import Textbox from "./TextBox/textbox.js";
 import Button from "./Button/button.js";
 import Alert from "./AlertBox/alert.js";
+import AreaGraph from "./AreaGraph/index.js";
+import Histogram from "./Histogram/index.js";
+import LineGraph from "./LineGraph/index.js";
+import Table from "./Table/table.js";
 export {
   Title,
   Filter,
@@ -16,4 +20,8 @@ export {
   Textbox,
   Button,
   Alert,
+  AreaGraph,
+  Histogram,
+  LineGraph,
+  Table,
 };
