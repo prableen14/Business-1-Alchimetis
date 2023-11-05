@@ -1,11 +1,13 @@
 import React from "react";
 import {
-  LineChart,
-  Line,
-  ResponsiveContainer,
   XAxis,
   YAxis,
+  CartesianGrid,
   Tooltip,
+  Legend,
+  ResponsiveContainer,
+  AreaChart,
+  Area,
 } from "recharts";
 
 import "./style.scss";
@@ -14,7 +16,7 @@ import Store from "../../assets/images/Store.svg";
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
-export default function LineGraph({
+export default function AreaGraph({
   data,
   label,
   dataKey,
@@ -37,24 +39,22 @@ export default function LineGraph({
 
       <div className='line-graph-chart'>
         <ResponsiveContainer width='100%' height='100%'>
-          <LineChart width={300} height={100} data={data}>
-            <XAxis
-              dataKey={xAxisDataKey}
-              // tickFormatter={(tick) => tick[0]}
-            />
+          <AreaChart width={300} height={100} data={data}>
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey={xAxisDataKey} />
             <YAxis
               tickFormatter={(tick) => formatter.format(tick)}
               width={20}
             />
             <Tooltip />
-
-            <Line
+            {/* <Legend /> */}
+            <Area
               type='monotone'
               dataKey={dataKey}
-              stroke='#8884d8'
-              strokeWidth={2}
+              stroke='#2d55b4'
+              fill='#2d55b4'
             />
-          </LineChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </div>

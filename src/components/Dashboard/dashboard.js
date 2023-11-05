@@ -1,72 +1,70 @@
 import React from "react";
-import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
+import {
+  Title,
+  TextAndImage,
+  MessagePreview,
+  AreaGraph,
+  LineGraph,
+  Histogram,
+  Table,
+  PieChart,
+  BarGraph,
+} from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
-import Histogram from "../../atoms/Histogram/index.js";
-import LineGraph from "../../atoms/LineGraph/index.js";
-import BarGraph from "../../atoms/BarGraph/index.js";
-import PieChart from "../../atoms/PieChart/index.js";
 import "./style.scss";
+import Summary from "../../data/Summary.json";
+import DataSummary from "../../data/Data_summary.json";
 
 // CSV Parser component and hook
 import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
 import useCsvParser from "../../hooks/useCsvParser.js";
 
 const Dashboard = (props) => {
-  const { csv, setCSV } = useCsvParser("/temp.csv");
+  // const { csv, setCSV } = useCsvParser('/temp.csv');
 
-  console.log(csv);
+  const tableCol = [
+    {
+      dataField: "Data Type",
+      text: "Type",
+    },
+    { dataField: "Unit", text: "Unit" },
+    { dataField: "Amount", text: "Amount", sort: true },
+    {
+      dataField: "Energy Consumed  (GJ)",
+      text: "Energy Consumed  (GJ)",
+      sort: true,
+    },
+    {
+      dataField: "Energy Produced (GJ)",
+      text: "Energy Produced (GJ)",
+      sort: true,
+    },
+    { dataField: "Cost (USD)", text: "Cost (USD)", sort: true },
+  ];
 
   return (
-    <div className="DashBoard">
-      <Title title="Dashboard" size="large" subtitle={"Welcome back, Rahul"} />
-      <Title title="Recent Messages" size="medium" />
+    <div className='DashBoard'>
+      <Title title='Dashboard' size='large' subtitle={"Welcome back, Rahul"} />
 
-      <div className="analytics-group">
+      <div className='analytics-group'>
         <Histogram
           values={[50, 60, 30, 70, 80, 90, 100, 20, 10]}
-          label="Revenue"
-          trend="up"
-          color="blue"
-        />
-        <Histogram
-          values={[50, 60, 30, 70, 100, 100, 100, 20, 10]}
-          label="Expenses"
-          trend="down"
-          color="purple"
+          label='Revenue'
+          trend='up'
+          color='blue'
         />
 
+        <AreaGraph
+          data={Summary}
+          label='Accrued'
+          dataKey={"Accrued"}
+          xAxisDataKey={"Month"}
+        />
         <LineGraph
-          data={[
-            {
-              day: "Monday",
-              sales: 2400,
-            },
-            {
-              day: "Tuesday",
-              sales: 1398,
-            },
-            {
-              day: "Wednesday",
-              sales: 1000,
-            },
-            {
-              day: "Thursday",
-              sales: 3908,
-            },
-            {
-              day: "Friday",
-              sales: 4800,
-            },
-            {
-              day: "Saturday",
-              sales: 3800,
-            },
-            {
-              day: "Sunday",
-              sales: 4300,
-            },
-          ]}
-          label="Sales"
+          data={Summary}
+          label='Estimated'
+          dataKey={"Estimated"}
+          xAxisDataKey={"Month"}
         />
 
         <PieChart
@@ -89,7 +87,7 @@ const Dashboard = (props) => {
               value: 5,
             },
           ]}
-          label="Sales"
+          label='Sales'
         />
 
         <BarGraph
@@ -122,68 +120,77 @@ const Dashboard = (props) => {
               sales: 4300,
             },
           ]}
-          label="Sales"
+          label='Sales'
         />
       </div>
+      <div style={{ padding: "10px", marginTop: "15px" }}>
+        <Table data={DataSummary} columns={tableCol} />
+      </div>
 
-      <div className="notification">
-        <div className="notification__chat">
-          <MessagePreview
-            imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-            name="Jenny Fox"
-            message="Update on marketing campaign"
-            time="2:32pm"
-          />
-          <MessagePreview
-            imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-            name="Jenny Fox"
-            message="Update on marketing campaign"
-            time="2:32pm"
-          />
-          <MessagePreview
-            imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-            name="Jenny Fox"
-            message="Update on marketing campaign"
-            time="2:32pm"
-          />
-          <MessagePreview
-            imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-            name="Jenny Fox"
-            message="Update on marketing campaign"
-            time="2:32pm"
-          />
+      <div className='notification'>
+        <div className='notification_chatsub'>
+          <Title title='Recent Messages' size='medium' />
+          <div className='notification__chat'>
+            <MessagePreview
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
+            />
+            <MessagePreview
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
+            />
+            <MessagePreview
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
+            />
+            <MessagePreview
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
+            />
+          </div>
         </div>
-        <div className="notification__todo">
-          <TextAndImage
-            imgSrc={homeSvg}
-            title="Choose perfect product idea"
-            date="Jan 18"
-            time="5:00 pm"
-          />
-          <TextAndImage
-            imgSrc={homeSvg}
-            title="Choose perfect product idea"
-            date="Jan 18"
-            time="5:00 pm"
-          />
-          <TextAndImage
-            imgSrc={homeSvg}
-            title="Choose perfect product idea"
-            date="Jan 18"
-            time="5:00 pm"
-          />
-          <TextAndImage
-            imgSrc={homeSvg}
-            title="Choose perfect product idea"
-            date="Jan 18"
-            time="5:00 pm"
-          />
-          <TextAndImage
-            imgSrc={homeSvg}
-            title="Choose perfect product idea"
-            date="Jan 18"
-            time="5:00 pm"
-          />
+        <div className='notification_todosub'>
+          <Title title='Your to-do list' size='medium' />
+          <div className='notification__todo'>
+            <TextAndImage
+              imgSrc={homeSvg}
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
+            />
+            <TextAndImage
+              imgSrc={homeSvg}
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
+            />
+            <TextAndImage
+              imgSrc={homeSvg}
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
+            />
+            <TextAndImage
+              imgSrc={homeSvg}
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
+            />
+            <TextAndImage
+              imgSrc={homeSvg}
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
+            />
+          </div>
         </div>
       </div>
     </div>
