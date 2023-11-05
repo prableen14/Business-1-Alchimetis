@@ -1,0 +1,53 @@
+@import "../../index.scss";
+
+.pie-chart {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  background-color: $white;
+  width: 300px;
+  height: 200px;
+  flex-direction: column;
+  border-radius: 8px;
+  gap: 12px;
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    &-value-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-value {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &-title {
+      font-size: 14px;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+
+      svg {
+        color: $primary-blue;
+      }
+    }
+  }
+
+  &-chart {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+  }
+}

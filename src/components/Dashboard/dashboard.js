@@ -3,6 +3,8 @@ import { Title, TextAndImage, MessagePreview } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import Histogram from "../../atoms/Histogram/index.js";
 import LineGraph from "../../atoms/LineGraph/index.js";
+import BarGraph from "../../atoms/BarGraph/index.js";
+import PieChart from "../../atoms/PieChart/index.js";
 import "./style.scss";
 
 // CSV Parser component and hook
@@ -10,10 +12,9 @@ import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
 import useCsvParser from "../../hooks/useCsvParser.js";
 
 const Dashboard = (props) => {
+  const { csv, setCSV } = useCsvParser("/temp.csv");
 
-  const { csv, setCSV } = useCsvParser('/temp.csv');
-
-  console.log(csv)
+  console.log(csv);
 
   return (
     <div className="DashBoard">
@@ -62,6 +63,62 @@ const Dashboard = (props) => {
             },
             {
               day: "Sunday",
+              sales: 4300,
+            },
+          ]}
+          label="Sales"
+        />
+
+        <PieChart
+          data={[
+            {
+              name: "TEST_1",
+              value: 40,
+            },
+            {
+              name: "TEST_2",
+              value: 35,
+            },
+            {
+              name: "TEST_3",
+              value: 20,
+            },
+
+            {
+              name: "TEST_4",
+              value: 5,
+            },
+          ]}
+          label="Sales"
+        />
+
+        <BarGraph
+          data={[
+            {
+              sales: 2400,
+            },
+            {
+              sales: 1398,
+            },
+            {
+              sales: 1000,
+            },
+            {
+              sales: 3908,
+            },
+            {
+              sales: 4800,
+            },
+            {
+              sales: 3800,
+            },
+            {
+              sales: 4300,
+            },
+            {
+              sales: 3800,
+            },
+            {
               sales: 4300,
             },
           ]}
