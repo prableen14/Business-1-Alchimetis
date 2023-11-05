@@ -11,10 +11,6 @@ import {
   BarGraph,
 } from "../../atoms/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
-// import Histogram from "../../atoms/Histogram/index.js";
-// import LineGraph from "../../atoms/LineGraph/index.js";
-// import BarGraph from "../../atoms/BarGraph/index.js";
-// import PieChart from "../../atoms/PieChart/index.js";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
 import DataSummary from "../../data/Data_summary.json";

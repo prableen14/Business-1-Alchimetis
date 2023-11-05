@@ -11,6 +11,8 @@ import AreaGraph from "./AreaGraph/index.js";
 import Histogram from "./Histogram/index.js";
 import LineGraph from "./LineGraph/index.js";
 import Table from "./Table/table.js";
+import PieChart from "./PieChart/index.js";
+import BarGraph from "./BarGraph/index.js";
 export {
   Title,
   Filter,
@@ -24,4 +26,6 @@ export {
   Histogram,
   LineGraph,
   Table,
+  PieChart,
+  BarGraph,
 };
