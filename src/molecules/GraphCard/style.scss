@@ -1,13 +1,12 @@
 @import "../../index.scss";
-
-.line-graph {
+.graphCard {
   padding: 20px;
   display: flex;
   align-items: center;
   font-size: 12px;
   background-color: $white;
-  width: 320px;
-  height: 220px;
+  width: 360px;
+  height: 250px;
   flex-direction: column;
   border-radius: 8px;
   gap: 12px;
@@ -18,9 +17,6 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    font-weight: $bold-5;
-    font-size: 20px;
-    color: $secondary-grey;
 
     &-value-wrapper {
       display: flex;
@@ -28,12 +24,15 @@
     }
 
     &-value {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: $bold-7;
+      color: $primary-grey;
     }
 
     &-title {
-      font-size: 14px;
+      font-weight: $bold-5;
+      font-size: 20px;
+      color: $secondary-grey;
     }
 
     &-icon {
