@@ -31,8 +31,8 @@
     margin-top: 15px;
     display: flex;
     flex-direction: row;
-    gap: calc((100% - (340px * 3)) / 2);
-    // gap: 16px;
+    // gap: calc((100% - (360px * 3)) / 2);
+    gap: 15px;
     flex-wrap: wrap;
   }
 }

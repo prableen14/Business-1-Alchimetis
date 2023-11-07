@@ -5,11 +5,11 @@ import {
   MessagePreview,
   AreaGraph,
   LineGraph,
-  Histogram,
   Table,
   PieChart,
   BarGraph,
 } from "../../atoms/index.js";
+import { GraphCard } from "../../molecules/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
@@ -47,79 +47,99 @@ const Dashboard = (props) => {
       <Title title='Dashboard' size='large' subtitle={"Welcome back, Rahul"} />
 
       <div className='analytics-group'>
-        <Histogram
+        {/* <Histogram
           values={[50, 60, 30, 70, 80, 90, 100, 20, 10]}
           label='Revenue'
           trend='up'
           color='blue'
-        />
-
-        <AreaGraph
-          data={Summary}
+        /> */}
+        <GraphCard
+          content={
+            <AreaGraph
+              data={Summary}
+              dataKey={"Accrued"}
+              xAxisDataKey={"Month"}
+            />
+          }
+          sublabel='esimation'
           label='Accrued'
-          dataKey={"Accrued"}
-          xAxisDataKey={"Month"}
         />
-        <LineGraph
-          data={Summary}
+
+        <GraphCard
+          content={
+            <LineGraph
+              data={Summary}
+              dataKey={"Estimated"}
+              xAxisDataKey={"Month"}
+            />
+          }
+          sublabel='esimation'
           label='Estimated'
-          dataKey={"Estimated"}
-          xAxisDataKey={"Month"}
         />
 
-        <PieChart
-          data={[
-            {
-              name: "TEST_1",
-              value: 40,
-            },
-            {
-              name: "TEST_2",
-              value: 35,
-            },
-            {
-              name: "TEST_3",
-              value: 20,
-            },
-
-            {
-              name: "TEST_4",
-              value: 5,
-            },
-          ]}
+        <GraphCard
           label='Sales'
-        />
+          sublabel='esimation'
+          dataKey={"value"}
+          content={
+            <PieChart
+              data={[
+                {
+                  name: "TEST_1",
+                  value: 40,
+                },
+                {
+                  name: "TEST_2",
+                  value: 35,
+                },
+                {
+                  name: "TEST_3",
+                  value: 20,
+                },
 
-        <BarGraph
-          data={[
-            {
-              sales: 2400,
-            },
-            {
-              sales: 1398,
-            },
-            {
-              sales: 1000,
-            },
-            {
-              sales: 3908,
-            },
-            {
-              sales: 4800,
-            },
-            {
-              sales: 3800,
-            },
-            {
-              sales: 4300,
-            },
-            {
-              sales: 3800,
-            },
-            {
-              sales: 4300,
-            },
-          ]}
+                {
+                  name: "TEST_4",
+                  value: 5,
+                },
+              ]}
+            />
+          }
+        />
+        <GraphCard
+          sublabel='esimation'
+          content={
+            <BarGraph
+              data={[
+                {
+                  sales: 2400,
+                },
+                {
+                  sales: 1398,
+                },
+                {
+                  sales: 1000,
+                },
+                {
+                  sales: 3908,
+                },
+                {
+                  sales: 4800,
+                },
+                {
+                  sales: 3800,
+                },
+                {
+                  sales: 4300,
+                },
+                {
+                  sales: 3800,
+                },
+                {
+                  sales: 4300,
+                },
+              ]}
+            />
+          }
           label='Sales'
         />
       </div>
