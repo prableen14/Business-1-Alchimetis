@@ -61,7 +61,7 @@ const Dashboard = (props) => {
               xAxisDataKey={"Month"}
             />
           }
-          sublabel='esimation'
+          sublabel='estimation'
           label='Accrued'
         />
 
@@ -73,13 +73,13 @@ const Dashboard = (props) => {
               xAxisDataKey={"Month"}
             />
           }
-          sublabel='esimation'
+          sublabel='estimation'
           label='Estimated'
         />
 
         <GraphCard
           label='Sales'
-          sublabel='esimation'
+          sublabel='estimation'
           dataKey={"value"}
           content={
             <PieChart
