@@ -106,7 +106,7 @@ const Dashboard = (props) => {
           }
         />
         <GraphCard
-          sublabel='esimation'
+          sublabel='estimation'
           content={
             <BarGraph
               data={[
