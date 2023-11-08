@@ -5,18 +5,48 @@ import Form from "react-bootstrap/Form";
 import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 import LockIcon from "@mui/icons-material/Lock";
 import { useNavigate } from "react-router-dom";
-
+import { validateEmail, validatePassword } from './validation';
+import { signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from "../../firebase"; 
 const Login = (props) => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (username && password) {
-      navigate("dashboard");
-    } else {
+  const handleLogin = async() => {
+ 
+    if (formData.email.trim() === "" || formData.password.trim() === "") {
+      alert("These fields are mandatory");
+      return;
     }
+    const trimmedEmail = formData.email.trim();
+    const trimmedPassword = formData.password.trim();
+    if (!validateEmail(trimmedEmail) || !validatePassword(trimmedPassword)) {
+      alert("Invalid username or password format");
+      return;
+    }
+    try {
+    const userCredential = await signInWithEmailAndPassword(auth, trimmedEmail, trimmedPassword);
+    navigate("/dashboard");
+    } catch (error) {
+      if (error.code === "auth/wrong-password") {
+        alert("Wrong password. Please try again.");
+      } else {
+        alert(error.message);
+      }
+      console.error("Authentication error:", error.message);
+    }
+  };
+  
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   return (
@@ -28,17 +58,17 @@ const Login = (props) => {
         </div>
         <div>
           <Textbox
-            placeholder={"Enter username"}
-            label='Username'
-            name='username'
-            onChange={(e) => setUsername(e?.target?.value)}
+            placeholder={"Enter email"}
+            label='Email'
+            name='email'
+        onChange={handleInputChange}
           />
           <Textbox
             placeholder={"Enter password"}
             label='Password'
             type='password'
             name='password'
-            onChange={(e) => setPassword(e?.target?.value)}
+        onChange={handleInputChange}
           />
         </div>
         <div className='login-terms-forgot'>
