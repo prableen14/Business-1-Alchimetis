@@ -1,27 +1,43 @@
-import React from "react";
+import React , { useEffect, useState }from "react";
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase';
 import "./App.scss";
 import { Filter, Profile } from "./atoms/index.js";
 import { SideNav } from "./molecules/index";
 import Router from "./router/router";
 import { useLocation } from "react-router-dom";
-
+import UserDetails from "./utils/userDetails"
 const App = (props) => {
   const location = useLocation();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return unsubscribe;
+  }, []);
 
   return (
     <div className="App">
-      {location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot-password" || location.pathname === "/" ? null : (
+      {location.pathname === '/login' ||
+      location.pathname === '/register' ||
+      location.pathname === '/forgot-password' ||
+      location.pathname === '/' ? (
+        <Router />
+      ) : (
         <>
           <SideNav page="Dashboard" />
           <div className="topnav">
-            <div className={"topnav-content"}>
+            <div className={'topnav-content'}>
               <Filter />
-              <Profile />
+              <UserDetails />
             </div>
           </div>
+          <Router />
         </>
       )}
-      <Router />
     </div>
   );
 };
