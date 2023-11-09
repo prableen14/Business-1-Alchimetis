@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Title,
   TextAndImage,
@@ -14,6 +14,9 @@ import homeSvg from "../../assets/images/HomeDark.svg";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
 import DataSummary from "../../data/Data_summary.json";
+import { collection, getDocs } from 'firebase/firestore';
+import { database } from "../../firebase.js";
+
 import UsernameDisplay from '../../utils/displayUsername.js';
 // CSV Parser component and hook
 import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";

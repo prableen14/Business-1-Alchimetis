@@ -7,11 +7,14 @@ import AnalysticsIcon from "../../assets/images/Analytics.svg";
 import ReportIcon from "../../assets/images/Report.svg";
 import SettingIcon from "../../assets/images/Settings.svg";
 import LogoutIcon from "../../assets/images/Logout.svg";
-import { auth } from '../../firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const SideNav = (props) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const parts = location.pathname.split('/');
+  const currLocation = parts[parts.length - 1];
 
   const handleLogout = async () => {
     try {
@@ -21,6 +24,7 @@ const SideNav = (props) => {
       console.error('Error logging out:', error);
     }
   };
+
   return (
     <div id="sideNav">
       <div className="navTop">
@@ -31,26 +35,29 @@ const SideNav = (props) => {
         <div className="navTile">
           <div
             className={`pagesNav ${
-              props.page === "Dashboard" ? "current" : ""
+              currLocation === "dashboard" ? "current" : ""
             }`}
+            onClick={() => currLocation !== "Dashboard" ? navigate("/dashboard") : null}
           >
             <img src={HomeIcon} alt="HomeIcon" />
             <span>Dashboards</span>
           </div>
           <div
-            className={`pagesNav ${props.page === "DataLake" ? "current" : ""}`}
+            className={`pagesNav ${currLocation === "datalake" ? "current" : ""}`}
+            onClick={() => currLocation !== "datalake" ? navigate("/datalake") : null}
           >
             <img src={CustomersIcon} alt="CustomerIcon" />
             <span>Data Lake</span>
           </div>
           <div
-            className={`pagesNav ${props.page === "Action" ? "current" : ""}`}
+            className={`pagesNav ${currLocation === "Action" ? "current" : ""}`}
           >
             <img src={AnalysticsIcon} alt="AnalysticsIcon" />
             <span>Action</span>
           </div>
           <div
-            className={`pagesNav ${props.page === "Reports" ? "current" : ""}`}
+            className={`pagesNav ${currLocation === "report" ? "current" : ""}`}
+            onClick={() => currLocation !== "report" ? navigate("/report") : null}
           >
             <img src={ReportIcon} alt="ReportIcon" />
             <span>Reports</span>
