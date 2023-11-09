@@ -17,26 +17,12 @@ import DataSummary from "../../data/Data_summary.json";
 import { collection, getDocs } from 'firebase/firestore';
 import { database } from "../../firebase.js";
 
+import UsernameDisplay from '../../utils/displayUsername.js';
 // CSV Parser component and hook
 import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
 import useCsvParser from "../../hooks/useCsvParser.js";
-
 const Dashboard = (props) => {
   // const { csv, setCSV } = useCsvParser('/temp.csv');
-  useEffect(() => {
-    const queryFirestore = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(database, 'environment_data'));
-        const data = querySnapshot.docs.map((doc) => doc.data());
-        console.log('check data:', data);
-      } catch (error) {
-        console.error('Error querying Firestore:', error);
-      }
-    };
-  
-    queryFirestore();
-  }, []);
-
   const tableCol = [
     {
       dataField: "Data Type",
@@ -59,7 +45,7 @@ const Dashboard = (props) => {
 
   return (
     <div className='DashBoard'>
-      <Title title='Dashboard' size='large' subtitle={"Welcome back, Rahul"} />
+     <Title title='Dashboard' size='large' subtitle={`Welcome back  ${UsernameDisplay()}`}/>
 
       <div className='analytics-group'>
         {/* <Histogram
@@ -76,7 +62,7 @@ const Dashboard = (props) => {
               xAxisDataKey={"Month"}
             />
           }
-          sublabel='esimation'
+          sublabel='estimation'
           label='Accrued'
         />
 
@@ -88,13 +74,13 @@ const Dashboard = (props) => {
               xAxisDataKey={"Month"}
             />
           }
-          sublabel='esimation'
+          sublabel='estimation'
           label='Estimated'
         />
 
         <GraphCard
           label='Sales'
-          sublabel='esimation'
+          sublabel='estimation'
           dataKey={"value"}
           content={
             <PieChart
@@ -121,7 +107,7 @@ const Dashboard = (props) => {
           }
         />
         <GraphCard
-          sublabel='esimation'
+          sublabel='estimation'
           content={
             <BarGraph
               data={[

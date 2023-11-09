@@ -15,6 +15,15 @@ const SideNav = (props) => {
   const parts = location.pathname.split('/');
   const currLocation = parts[parts.length - 1];
 
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate('/login');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
+
   return (
     <div id="sideNav">
       <div className="navTop">
@@ -59,11 +68,9 @@ const SideNav = (props) => {
           <img src={SettingIcon} alt="SettingIcon" />
           <span>Settings</span>
         </div>
-        <div className="pagesNav">
+        <div className="pagesNav" onClick={handleLogout}>
           <img src={LogoutIcon} alt="SettingIcon" />
-          <a href="/login">
-            <span href="/login">Logout</span>
-          </a>
+          <span>Logout</span>
         </div>
       </div>
     </div>

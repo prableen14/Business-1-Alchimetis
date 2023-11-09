@@ -5,9 +5,10 @@ import Form from "react-bootstrap/Form";
 import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 import LockIcon from "@mui/icons-material/Lock";
 import { useNavigate } from "react-router-dom";
-import { validateEmail, validatePassword } from './validation';
+import { validateEmail, validatePassword } from '../../utils/validation';
 import { signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../../firebase"; 
+import checkIfEmailExists from "../../utils/checkIfEmailExists"; 
 const Login = (props) => {
   const [formData, setFormData] = useState({
     email: "",
@@ -16,30 +17,33 @@ const Login = (props) => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async() => {
- 
-    if (formData.email.trim() === "" || formData.password.trim() === "") {
+  const handleLogin = async () => {
+    const trimmedEmail = formData.email.trim();
+    const trimmedPassword = formData.password.trim();
+    if (trimmedEmail === "" || trimmedPassword === "") {
       alert("These fields are mandatory");
       return;
     }
-    const trimmedEmail = formData.email.trim();
-    const trimmedPassword = formData.password.trim();
+  
     if (!validateEmail(trimmedEmail) || !validatePassword(trimmedPassword)) {
       alert("Invalid username or password format");
       return;
     }
+  
+    const emailExists = await checkIfEmailExists(trimmedEmail);
+  if(emailExists){
     try {
-    const userCredential = await signInWithEmailAndPassword(auth, trimmedEmail, trimmedPassword);
-    navigate("/dashboard");
+      await signInWithEmailAndPassword(auth, trimmedEmail, trimmedPassword);
+      navigate("/dashboard");
     } catch (error) {
-      if (error.code === "auth/wrong-password") {
-        alert("Wrong password. Please try again.");
-      } else {
-        alert(error.message);
-      }
+      alert("Wrong password. Please try again.");
       console.error("Authentication error:", error.message);
+      return; 
+    }}
+    else{
+      alert("No account registered with this mail. Please register first.")
     }
-  };
+  };  
   
   const handleInputChange = (e) => {
     const { name, value } = e.target;
