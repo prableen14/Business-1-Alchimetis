@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import { ThreeDots  } from  'react-loader-spinner';
 import { collection, addDoc } from 'firebase/firestore';
 import { database } from "../../firebase.js";
+import Papa from 'papaparse';
 
 const dataTypeList = {
   "e-co2-groups": "Environment - CO2 - Activity by groups",
@@ -20,6 +21,7 @@ const Datalake = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [dataType, setDataType] = useState("e-co2-groups");
   const [isUploading, setIsUploading] = useState(false);
+  const [dataJSON, setDataJSON] = useState(null);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -47,10 +49,16 @@ const Datalake = () => {
     };
 
     try {
-      const data = await parseCsvToJson(selectedFile)
+      Papa.parse(selectedFile, {
+        header: true,
+        complete: function(results) {
+          console.log("Finished:", results.data);
+          setDataJSON(results.data)
+        }}
+      )
       const dataToUpload = {
         category: dataType.split('-')[1],
-        data: data,
+        data: dataJSON,
         groupBy: dataType.split('-')[2],
         createdDate: new Date(),
         type: dataType.split('-')[0]
@@ -98,7 +106,7 @@ const Datalake = () => {
 
   return (
     <div className='datalake'>
-      <p>*<a href="https://app.degoo.com/share/2x52eP9til_hfjMvpwX8yg" target="_blank">Click here</a> to view sample csv files</p>
+      <p>*<a href="https://app.degoo.com/share/2x52eP9til_hfjMvpwX8yg" target="_blank" rel="noreferrer">Click here</a> to view sample csv files</p>
       <div
         onDrop={handleDrop}
         onDragOver={handleDragOver}
