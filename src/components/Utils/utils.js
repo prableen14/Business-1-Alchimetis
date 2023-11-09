@@ -48,25 +48,21 @@ const transformData = (data, typeInfo) => {
                     break;
                 case 'location':
                     break;
-                case 'scope':
-                    // const dataKey = []
-                    // const value = []
+                case 'scope':   
                     return data.map((item) => {
-                        // if (parseFloat(item['Proportion (%)']) < 100 ) {
-                        //     dataKey.push(item.Measures)
-                        //     value.push(parseFloat(item['Proportion (%)']))
-                        // }
                         return {
                             proportion: parseFloat(item['Proportion (%)']),
                             measures: item.Measures,
                         }
                     })
-                    // return {
-                    //     dataKey,
-                    //     value
-                    // }
                 case 'period':
-                    break;
+                    return data.map((item) => {
+                        return {
+                            date: item.Date,
+                            co2: parseFloat(item['CO2e (t)']),
+                            co2Prev: parseFloat(item['CO2e (t)-Previous Period']),
+                        }
+                    })
                 case 'datatype':
                     break;
                 default:
