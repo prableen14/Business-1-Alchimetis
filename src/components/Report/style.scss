@@ -6,13 +6,13 @@
 
 .reportEnvironment {
     padding: 10px 20px;
-    display: flex;
-    gap: 30px;
 
     &-block {
-        width: 50%;
-
+        display: flex;
+        gap: 30px;
+        
         &-title {
+            width: 30%;
             font-weight: 700;
             color: $primary-green;
             padding-left: 10px;
@@ -20,8 +20,9 @@
             margin-bottom: 20px;
             border-bottom: solid 3px $primary-green;
         }
-
+        
         .graphCard {
+            width: 50%;
             background-color: $secondary-blue;
         }
     }
