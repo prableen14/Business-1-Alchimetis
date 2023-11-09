@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
 import { GraphCard } from "../../molecules/index.js";
 import { AreaGraph, LineGraph } from "../../atoms/index.js";
+import { getDataByType } from "../Utils/utils.js";
 
-const ReportEnvironment = () => {
+const ReportEnvironment = ({data}) => {
+  const [finalData, setFinalData] = useState([])
+
+  useEffect(() =>{
+    if (!data) return
+
+    const groupedData = data.reduce((groups, item) => {
+      const key = `${item.type}-${item.category}-${item.groupBy}`;
+    
+      if (!groups[key] || item.createdDate.seconds > groups[key].createdDate.seconds) {
+        groups[key] = item;
+      }
+    
+      return groups;
+    }, {});
+    
+    // Convert the grouped data back to an array
+    const result = Object.values(groupedData);
+    setFinalData(result)
+
+    //sample how to get the data out
+    console.log('sample: ', getDataByType(result, 'e', 'co2', 'groups'))
+  },[])
 
   return (
     <div className='reportEnvironment'>

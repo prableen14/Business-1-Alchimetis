@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import("../components/Dashboard/dashboard.js"));
 const Login = lazy(() => import("../components/Login/login.js"));
 const Register = lazy(() => import("../components/Login/register.js"));
 const Datalake = lazy(() => import("../components/Datalake/datalake.js"))
+const ComingSoon = lazy(() => import("../components/ComingSoon/commingSoon.js"))
 const Report = lazy(() => import("../components/Report/report.js"))
 const ForgotPassword = lazy(() =>
   import("../components/Login/forgot-password.js")
@@ -50,6 +51,16 @@ class RouterClass extends Component {
               exact
               path='/report'
               element={<Report history={history} />}
+            />
+            <Route
+              exact
+              path='/setting'
+              element={<ComingSoon history={history} />}
+            />
+            <Route
+              exact
+              path='/action'
+              element={<ComingSoon history={history} />}
             />
             <Route
               exact

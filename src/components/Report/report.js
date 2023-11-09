@@ -16,7 +16,7 @@ const Report = () => {
       try {
         const querySnapshot = await getDocs(collection(database, 'environment_data'));
         const returnedData = querySnapshot.docs.map((doc) => doc.data());
-        console.log('check data:', returnedData);
+        // console.log('check data:', returnedData);
         setData(returnedData)
       } catch (error) {
         console.error('Error querying Firestore:', error);
@@ -45,7 +45,7 @@ const Report = () => {
     <div className='report'>
       <Tabs defaultActiveKey="first"> 
         <Tab eventKey="first" title="Environment">
-          <ReportEnvironment />
+          <ReportEnvironment data={data}/>
         </Tab> 
         <Tab eventKey="second" title="Social"> 
           Hii, I am 2nd tab content 
