@@ -8,7 +8,7 @@ import { getDataByType } from "../Utils/utils.js";
 const ReportEnvironment = ({data}) => {
   const [finalData, setFinalData] = useState([])
 
-  useEffect(() =>{
+  useEffect(() => {
     if (!data) return
 
     const groupedData = data.reduce((groups, item) => {
@@ -32,7 +32,7 @@ const ReportEnvironment = ({data}) => {
   return (
     <div className='reportEnvironment'>
       <div className='reportEnvironment-group'>
-        <div className='reportEnvironment-block-title'>CO2</div>
+        <div className='reportEnvironment-block-title'>Carbon footprint</div>
         <div className='reportEnvironment-block'>
           <GraphCard
             content={
@@ -61,7 +61,9 @@ const ReportEnvironment = ({data}) => {
         </div>
       </div>
       <div className='reportEnvironment-group'>
-        <div className='reportEnvironment-block-title' style={{ color: '#564ab1', borderColor: '#564ab1' }}>Energy</div>
+        <div
+          className='reportEnvironment-block-title'
+          style={{ color: '#564ab1', borderColor: '#564ab1' }}>Energy Management</div>
         <div className='reportEnvironment-block'>
           <GraphCard
             content={

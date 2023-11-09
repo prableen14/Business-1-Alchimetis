@@ -13,6 +13,7 @@ import LineGraph from "./LineGraph/index.js";
 import Table from "./Table/table.js";
 import PieChart from "./PieChart/index.js";
 import BarGraph from "./BarGraph/index.js";
+import Avatar from "./Avatar/avatar.js";
 export {
   Title,
   Filter,
@@ -28,4 +29,5 @@ export {
   Table,
   PieChart,
   BarGraph,
+  Avatar
 };

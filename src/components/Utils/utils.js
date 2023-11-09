@@ -73,4 +73,11 @@ const getDataByType = (data, type, category, group) => {
     return data.find(item => item.type == type && item.category == category && item.groupBy == group)
 }
 
-export { parseCsvToJson, transformData, getDataByType };
+const getInitials = name => {
+    const words = name.split(' ');
+    const initials = words.map(word => word.charAt(0));
+
+    return initials.join('').toUpperCase();
+  }
+
+export { parseCsvToJson, transformData, getDataByType, getInitials };
