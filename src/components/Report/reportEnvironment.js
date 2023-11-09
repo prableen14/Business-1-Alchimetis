@@ -4,8 +4,8 @@ import Summary from "../../data/Summary.json";
 import { GraphCard } from "../../molecules/index.js";
 import { AreaGraph, LineGraph } from "../../atoms/index.js";
 
-const ReportEnvironment = () => {
-
+const ReportEnvironment = ({data}) => {
+  console.log('check data: ', data)
   return (
     <div className='reportEnvironment'>
       <div className='reportEnvironment-group'>

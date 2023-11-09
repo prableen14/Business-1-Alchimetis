@@ -50,7 +50,8 @@ const SideNav = (props) => {
             <span>Data Lake</span>
           </div>
           <div
-            className={`pagesNav ${currLocation === "Action" ? "current" : ""}`}
+            className={`pagesNav ${currLocation === "action" ? "current" : ""}`}
+            onClick={() => currLocation !== "action" ? navigate("/action") : null}
           >
             <img src={AnalysticsIcon} alt="AnalysticsIcon" />
             <span>Action</span>
@@ -65,7 +66,10 @@ const SideNav = (props) => {
         </div>
       </div>
       <div className="navBottom">
-        <div className="pagesNav">
+        <div
+          className={`pagesNav ${currLocation === "setting" ? "current" : ""}`}
+          onClick={() => currLocation !== "setting" ? navigate("/setting") : null}
+        >
           <img src={SettingIcon} alt="SettingIcon" />
           <span>Settings</span>
         </div>

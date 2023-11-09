@@ -64,6 +64,12 @@
       padding: 10px 30px;
       color: $tertiary-blue;
       color: $secondary-blue;
+
+      &.current {
+        border-left: 3px solid $secondary-blue;
+        color: $secondary-blue;
+      }
+      
       img {
         margin-right: 10px;
         width: 20px;
