@@ -7,8 +7,20 @@ import AnalysticsIcon from "../../assets/images/Analytics.svg";
 import ReportIcon from "../../assets/images/Report.svg";
 import SettingIcon from "../../assets/images/Settings.svg";
 import LogoutIcon from "../../assets/images/Logout.svg";
+import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const SideNav = (props) => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate('/login');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
   return (
     <div id="sideNav">
       <div className="navTop">
@@ -50,11 +62,9 @@ const SideNav = (props) => {
           <img src={SettingIcon} alt="SettingIcon" />
           <span>Settings</span>
         </div>
-        <div className="pagesNav">
+        <div className="pagesNav" onClick={handleLogout}>
           <img src={LogoutIcon} alt="SettingIcon" />
-          <a href="/login">
-            <span href="/login">Logout</span>
-          </a>
+          <span>Logout</span>
         </div>
       </div>
     </div>

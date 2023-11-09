@@ -14,14 +14,12 @@ import homeSvg from "../../assets/images/HomeDark.svg";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
 import DataSummary from "../../data/Data_summary.json";
-
+import UsernameDisplay from '../../utils/displayUsername.js';
 // CSV Parser component and hook
 import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
 import useCsvParser from "../../hooks/useCsvParser.js";
-
 const Dashboard = (props) => {
   // const { csv, setCSV } = useCsvParser('/temp.csv');
-
   const tableCol = [
     {
       dataField: "Data Type",
@@ -44,7 +42,7 @@ const Dashboard = (props) => {
 
   return (
     <div className='DashBoard'>
-      <Title title='Dashboard' size='large' subtitle={"Welcome back, Rahul"} />
+     <Title title='Dashboard' size='large' subtitle={`Welcome back  ${UsernameDisplay()}`}/>
 
       <div className='analytics-group'>
         {/* <Histogram

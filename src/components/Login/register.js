@@ -4,23 +4,25 @@ import { Title, Textbox, Button } from "../../atoms";
 import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
-import { validateUsername,  validateEmail,validatePassword } from './validation';
+import { validateName, validateUsername,  validateEmail,validatePassword } from '../../utils/validation';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, database } from '../../firebase'; 
 import { collection, addDoc } from "firebase/firestore";
 const Register = (props) => {
   const [formData, setFormData] = useState({
+    name: "",
     username: "",
     email: "",
     password: "",
   });
   const navigate = useNavigate();
   const handleRegistration = async () => {
-  
+    const trimmedName = formData.name.trim();
     const trimmedUsername = formData.username.trim();
     const trimmedPassword = formData.password.trim();
     const trimmedEmail = formData.email.trim();
     if (
+      validateName(trimmedName)&&
       validateUsername(trimmedUsername) &&
     validateEmail(trimmedEmail) &&
     validatePassword(trimmedPassword)
@@ -29,8 +31,9 @@ const Register = (props) => {
         const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
         const user = userCredential.user;
         const userDataCollection = collection(database, "users");
-        const newUserDoc = await addDoc(userDataCollection, {
+        await addDoc(userDataCollection, {
           uid: user.uid, 
+          name: trimmedName,
           username: trimmedUsername,
           email: trimmedEmail,
         });
@@ -60,6 +63,7 @@ const Register = (props) => {
           <Title title='Ecoforce' size='large' />
         </div>
         <div>
+        <Textbox placeholder={"Enter name"} label='Name' name="name" onChange={handleInputChange} />
           <Textbox placeholder={"Enter username"} label='Username' name="username" onChange={handleInputChange} />
           <Textbox placeholder={"Enter email"} label='Email' name="email" onChange={handleInputChange} />
           <Textbox placeholder={"Enter password"} label='Password' name="password" type="password" onChange={handleInputChange} />
