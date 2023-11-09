@@ -8,6 +8,7 @@ import ReportIcon from "../../assets/images/Report.svg";
 import SettingIcon from "../../assets/images/Settings.svg";
 import LogoutIcon from "../../assets/images/Logout.svg";
 import { useNavigate, useLocation } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const SideNav = (props) => {
   const navigate = useNavigate();
