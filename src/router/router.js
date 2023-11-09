@@ -7,6 +7,8 @@ import Spinner from "react-bootstrap/Spinner";
 const Dashboard = lazy(() => import("../components/Dashboard/dashboard.js"));
 const Login = lazy(() => import("../components/Login/login.js"));
 const Register = lazy(() => import("../components/Login/register.js"));
+const Datalake = lazy(() => import("../components/Datalake/datalake.js"))
+const Report = lazy(() => import("../components/Report/report.js"))
 const ForgotPassword = lazy(() =>
   import("../components/Login/forgot-password.js")
 );
@@ -39,6 +41,16 @@ class RouterClass extends Component {
               element={<Dashboard history={history} />}
             />
             <Route exact path='/login' element={<Login history={history} />} />
+            <Route
+              exact
+              path='/dataLake'
+              element={<Datalake history={history} />}
+            />
+            <Route
+              exact
+              path='/report'
+              element={<Report history={history} />}
+            />
             <Route
               exact
               path='/register'

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Title,
   TextAndImage,
@@ -14,6 +14,8 @@ import homeSvg from "../../assets/images/HomeDark.svg";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
 import DataSummary from "../../data/Data_summary.json";
+import { collection, getDocs } from 'firebase/firestore';
+import { database } from "../../firebase.js";
 
 // CSV Parser component and hook
 import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
@@ -21,6 +23,19 @@ import useCsvParser from "../../hooks/useCsvParser.js";
 
 const Dashboard = (props) => {
   // const { csv, setCSV } = useCsvParser('/temp.csv');
+  useEffect(() => {
+    const queryFirestore = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(database, 'environment_data'));
+        const data = querySnapshot.docs.map((doc) => doc.data());
+        console.log('check data:', data);
+      } catch (error) {
+        console.error('Error querying Firestore:', error);
+      }
+    };
+  
+    queryFirestore();
+  }, []);
 
   const tableCol = [
     {

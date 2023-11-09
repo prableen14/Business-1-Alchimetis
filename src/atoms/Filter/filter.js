@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.scss";
 import FilterIcon from "../../assets/filter.svg";
+import SearchIcon from "../../assets/search.svg";
 
 const Filter = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,9 +32,9 @@ const Filter = () => {
   return (
     <div className="filter-frame" onClick={handleFilterClick} ref={filterFrameRef}>
       <div className="filter-icon">
-        <img src={FilterIcon} alt="Filter Icon" />
+        <img src={SearchIcon} alt="Filter Icon" />
       </div>
-      <div className="filter-text">Filters</div>
+      <div className="filter-text">Search</div>
       <div className={`filter-dropdown ${isOpen ? "open" : ""}`}>
         <label>
           <input type="checkbox" value="option1" onClick={handleCheckboxClick} />

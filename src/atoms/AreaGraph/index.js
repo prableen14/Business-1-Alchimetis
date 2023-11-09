@@ -4,7 +4,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   AreaChart,
   Area,
@@ -16,7 +15,8 @@ import Store from "../../assets/images/Store.svg";
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
-export default function AreaGraph({ data, dataKey, xAxisDataKey }) {
+export default function AreaGraph({ data, dataKey, xAxisDataKey, styles }) {
+
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <AreaChart width={300} height={100} data={data}>
@@ -28,8 +28,8 @@ export default function AreaGraph({ data, dataKey, xAxisDataKey }) {
         <Area
           type='monotone'
           dataKey={dataKey}
-          stroke='#2d55b4'
-          fill='#2d55b4'
+          stroke={ styles?.stroke ?? '#2d55b4'}
+          fill={ styles?.fill ?? '#2d55b4'}
         />
       </AreaChart>
     </ResponsiveContainer>
