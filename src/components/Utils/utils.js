@@ -69,4 +69,8 @@ const transformData = (data, typeInfo) => {
     return 1
 }
 
-export { parseCsvToJson, transformData };
+const getDataByType = (data, type, category, group) => {
+    return data.find(item => item.type == type && item.category == category && item.groupBy == group)
+}
+
+export { parseCsvToJson, transformData, getDataByType };
