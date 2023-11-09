@@ -16,7 +16,6 @@ const Report = () => {
       try {
         const querySnapshot = await getDocs(collection(database, 'environment_data'));
         const returnedData = querySnapshot.docs.map((doc) => doc.data());
-        // console.log('check data:', returnedData);
         setData(returnedData)
       } catch (error) {
         console.error('Error querying Firestore:', error);

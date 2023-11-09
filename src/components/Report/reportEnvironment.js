@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Summary from "../../data/Summary.json";
 import { GraphCard } from "../../molecules/index.js";
-import { AreaGraph, LineGraph } from "../../atoms/index.js";
-import { getDataByType } from "../Utils/utils.js";
+import { AreaGraph, LineGraph, PieChart } from "../../atoms/index.js";
+import { getDataByType, getLatestData } from "../Utils/utils.js";
 
 const ReportEnvironment = ({data}) => {
   const [finalData, setFinalData] = useState([])
@@ -29,6 +29,7 @@ const ReportEnvironment = ({data}) => {
     console.log('sample: ', getDataByType(result, 'e', 'co2', 'groups'))
   },[])
 
+  
   return (
     <div className='reportEnvironment'>
       <div className='reportEnvironment-group'>
@@ -70,6 +71,18 @@ const ReportEnvironment = ({data}) => {
                 dataKey={"Estimated"}
                 xAxisDataKey={"Month"}
                 styles={{ fill: '#564ab1', stroke: '#564ab1' }}
+              />
+            }
+            //   sublabel='esimation'
+            label='Activity by scope'
+          />
+          <GraphCard
+            content={
+              <PieChart
+                data={getLatestData(data, 'e', 'co2', 'scope').data}
+                dataKey={'proportion'}
+                name={'measures'}
+                label={true}
               />
             }
             //   sublabel='esimation'

@@ -59,10 +59,10 @@ const Datalake = () => {
               setShowError(true)
               return;
             }
-    
+            
             const dataToUpload = {
               category: dataType.split('-')[1],
-              data: results.data,
+              data: transformedData,
               groupBy: dataType.split('-')[2],
               createdDate: new Date(),
               type: dataType.split('-')[0]
