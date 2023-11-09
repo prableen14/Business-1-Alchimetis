@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.scss";
-import { parseCsvToJson } from "../Utils/utils.js";
+import { parseCsvToJson, transformData } from "../Utils/utils.js";
 import Form from 'react-bootstrap/Form';
 import classnames from 'classnames';
 import { ThreeDots  } from  'react-loader-spinner';
@@ -9,7 +9,7 @@ import { database } from "../../firebase.js";
 import Papa from 'papaparse';
 
 const dataTypeList = {
-  "e-co2-groups": "Environment - CO2 - Activity by groups",
+  "e-co2-group": "Environment - CO2 - Activity by groups",
   "e-co2-location": "Environment - CO2 - Activity by locations",
   "e-co2-scope": "Environment - CO2 - Activity by scopes",
   "e-co2-period": "Environment - CO2 - Activity by periods",
@@ -21,6 +21,7 @@ const Datalake = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [dataType, setDataType] = useState("e-co2-groups");
   const [isUploading, setIsUploading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -47,35 +48,54 @@ const Datalake = () => {
       }
     };
 
+
     try {
       Papa.parse(selectedFile, {
         header: true,
         complete: async function(results) {
-          const dataToUpload = {
-            category: dataType.split('-')[1],
-            data: results.data,
-            groupBy: dataType.split('-')[2],
-            createdDate: new Date(),
-            type: dataType.split('-')[0]
+          try {
+            const transformedData = transformData(results.data, dataType)
+            if (!transformedData) {
+              setShowError(true)
+              return;
+            }
+    
+            const dataToUpload = {
+              category: dataType.split('-')[1],
+              data: results.data,
+              groupBy: dataType.split('-')[2],
+              createdDate: new Date(),
+              type: dataType.split('-')[0]
+            };
+    
+            console.log("Uploading data:", dataToUpload);
+            await uploadDataToFirestore(dataToUpload);
+            alert("Data is saved sucessfully!")
+          } catch (error) {
+            console.error('Error processing data:', error);
+            // Handle the error appropriately, e.g., show an error message
           }
-          console.log("Uploading dta:", dataToUpload)
-          await uploadDataToFirestore(dataToUpload)
-        }}
-      )
-      
+        },
+        error: function(error) {
+          console.error('Error parsing CSV:', error);
+          // Handle the error appropriately, e.g., show an error message
+        }
+      });
     } catch (error) {
       console.error('Error parsing CSV:', error);
-      return
+      // This block may not catch errors thrown inside the Papa.parse async function
     }
-
-    alert("Data is saved sucessfully!")
+    
+    if (showError) {
+      setShowError(false);
+    } 
     setIsUploading(false)
   }
 
   const handleDrop = (e) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
-    file ?? setSelectedFile(file);
+    if (file) setSelectedFile(file);
   };
 
   const handleDragOver = (e) => {
@@ -147,6 +167,7 @@ const Datalake = () => {
           }
         </Form.Select>
       </div>
+      { showError && <div style={{color:'red'}}>Please upload and choose correct data</div>}
       <button
         className={classnames('datalake-body-btn',
           { 'datalake-body-disabled': !selectedFile })}

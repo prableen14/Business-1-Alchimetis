@@ -34,4 +34,39 @@ const parseCsvToJson = (file) => {
     });
 };
 
-export { parseCsvToJson };
+const transformData = (data, typeInfo) => {
+    const type = typeInfo.split('-')[0] 
+    const category = typeInfo.split('-')[1]
+    const groupBy = typeInfo.split('-')[2]
+
+    if (type == 'e') {
+        //logic here
+        if (category == 'co2') {
+            //more here
+            switch (groupBy) {
+                case 'group':
+                    break;
+                case 'location':
+                    break;
+                case 'scope':
+                    break;
+                case 'period':
+                    break;
+                case 'datatype':
+                    break;
+                default:
+                    return false;
+            }
+        } else if (category == 'energy'){
+            switch (groupBy) {
+                case 'datatype':
+                    break;
+                default:
+                    return false;
+            }
+        }
+    }
+    return 1
+}
+
+export { parseCsvToJson, transformData };
