@@ -21,7 +21,6 @@ const Datalake = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [dataType, setDataType] = useState("e-co2-groups");
   const [isUploading, setIsUploading] = useState(false);
-  const [dataJSON, setDataJSON] = useState(null);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -51,19 +50,18 @@ const Datalake = () => {
     try {
       Papa.parse(selectedFile, {
         header: true,
-        complete: function(results) {
-          console.log("Finished:", results.data);
-          setDataJSON(results.data)
+        complete: async function(results) {
+          const dataToUpload = {
+            category: dataType.split('-')[1],
+            data: results.data,
+            groupBy: dataType.split('-')[2],
+            createdDate: new Date(),
+            type: dataType.split('-')[0]
+          }
+          console.log("Uploading dta:", dataToUpload)
+          await uploadDataToFirestore(dataToUpload)
         }}
       )
-      const dataToUpload = {
-        category: dataType.split('-')[1],
-        data: dataJSON,
-        groupBy: dataType.split('-')[2],
-        createdDate: new Date(),
-        type: dataType.split('-')[0]
-      }
-      await uploadDataToFirestore(dataToUpload)
       
     } catch (error) {
       console.error('Error parsing CSV:', error);
