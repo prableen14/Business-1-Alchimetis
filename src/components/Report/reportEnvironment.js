@@ -47,8 +47,8 @@ const ReportEnvironment = ({ data }) => {
               <MultiFormGraph
                 data={getLatestData(data, "e", "co2", "groups").data}
                 charts={[
-                  { dataKey: "co2", type: "line" },
-                  { dataKey: "co2Prev", type: "bar" },
+                  { dataKey: "co2", type: "bar" },
+                  { dataKey: "co2Prev", type: "line" },
                 ]}
                 xaxisDataKey={"group"}
               />
@@ -66,9 +66,19 @@ const ReportEnvironment = ({ data }) => {
             }
             label='Activity by groups - Proportion'
           />
+          {/* <GraphCard
+              content={
+                <LineGraph
+                  data={getLatestData(data, "e", "co2", "groups").data}
+                  dataKey={"variance"}
+                  xAxisDataKey={"group"}
+                />
+              }
+              label='Activity by groups - Proportion'
+            /> */}
         </div>
         <div className='reportEnvironment-block'>
-        <GraphCard
+          <GraphCard
             content={
               <PieChart
                 data={getLatestData(data, "e", "co2", "location").data}
@@ -92,7 +102,6 @@ const ReportEnvironment = ({ data }) => {
             }
             label='Activity by Locations - Current and Previous CO2'
           />
-     
         </div>
 
         <div className='reportEnvironment-block'>
