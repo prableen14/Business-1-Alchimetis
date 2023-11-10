@@ -43,12 +43,17 @@ const ReportEnvironment = ({ data }) => {
       <div className='reportEnvironment-group'>
         <div className='reportEnvironment-block-title'>CO2</div>
         <div className='reportEnvironment-block'>
-          <MultiFormGraph
-            data={Summary}
-            charts={[
-              { dataKey: "Accrued", type: "line" },
-              { dataKey: "Estimated", type: "bar" },
-            ]}
+          <GraphCard
+            content={
+              <MultiFormGraph
+                data={Summary}
+                charts={[
+                  { dataKey: "Accrued", type: "line" },
+                  { dataKey: "Estimated", type: "bar" },
+                ]}
+              />
+            }
+            label='MultiFormGraph'
           />
           <GraphCard
             content={
