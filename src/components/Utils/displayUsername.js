@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { auth, database } from '../firebase';
+import { auth, database } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const UsernameDisplay = () => {

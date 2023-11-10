@@ -59,7 +59,20 @@ const transformData = (data, typeInfo) => {
             };
           });
         case "location":
-          break;
+          return data.map((item) => {
+            return {
+              co2: parseFloat(item["CO2e  (t)"]),
+              co2Prev: parseFloat(
+                item["CO2e  (t)-Previous Period (Sep 2021 - Aug 2022)"]
+              ),
+              endPeriod: item["End Period"],
+              location: item["Locations"],
+              proportion: parseFloat(item["Proportion (%)"]),
+              startPeriod: item["Start Period"],
+              variance: parseFloat(item["Variance (%)"]),
+            };
+          });
+        //  break;
         case "scope":
           return data.map((item) => {
             return {

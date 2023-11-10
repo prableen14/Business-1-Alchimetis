@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { auth, database } from "../firebase";
+import { auth, database } from "../../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import {Profile } from "../atoms/index.js";
+import {Profile } from "../../atoms/index.js";
 const UserDetails = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

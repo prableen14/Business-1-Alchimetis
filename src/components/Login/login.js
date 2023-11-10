@@ -5,10 +5,10 @@ import Form from "react-bootstrap/Form";
 import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 import LockIcon from "@mui/icons-material/Lock";
 import { useNavigate } from "react-router-dom";
-import { validateEmail, validatePassword } from '../../utils/validation';
+import { validateEmail, validatePassword } from '../Utils/validation';
 import { signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../../firebase"; 
-import checkIfEmailExists from "../../utils/checkIfEmailExists"; 
+import checkIfEmailExists from "../Utils/checkIfEmailExists"; 
 const Login = (props) => {
   const [formData, setFormData] = useState({
     email: "",
