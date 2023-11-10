@@ -77,19 +77,35 @@ const ReportEnvironment = ({ data }) => {
               label='Activity by groups - Proportion'
             /> */}
         </div>
-
         <div className='reportEnvironment-block'>
-          <GraphCard
+        <GraphCard
             content={
               <PieChart
-                data={getLatestData(data, "e", "co2", "scope").data}
+                data={getLatestData(data, "e", "co2", "location").data}
                 dataKey={"proportion"}
-                name={"measures"}
+                name={"location"}
                 label={true}
               />
             }
-            label='Activity by scope- Proportion'
+            label='Activity by locations - Proportion'
           />
+          <GraphCard
+            content={
+              <MultiFormGraph
+                data={getLatestData(data, "e", "co2", "location").data}
+                charts={[
+                  { dataKey: "co2", type: "area" },
+                  { dataKey: "co2Prev", type: "line" },
+                ]}
+                xaxisDataKey={"location"}
+              />
+            }
+            label='Activity by Locations - Current and Previous CO2'
+          />
+     
+        </div>
+
+        <div className='reportEnvironment-block'>
           <GraphCard
             content={
               <BarGraph
@@ -102,6 +118,17 @@ const ReportEnvironment = ({ data }) => {
               />
             }
             label='Activity by scope - Current and Previous CO2'
+          />
+          <GraphCard
+            content={
+              <PieChart
+                data={getLatestData(data, "e", "co2", "scope").data}
+                dataKey={"proportion"}
+                name={"measures"}
+                label={true}
+              />
+            }
+            label='Activity by scope- Proportion'
           />
         </div>
       </div>
