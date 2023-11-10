@@ -18,7 +18,6 @@ const ReportEnvironment = ({ data }) => {
     if (!data) return;
 
     const groupedData = data.reduce((groups, item) => {
-      console.log(groups, item);
       const key = `${item.type}-${item.category}-${item.groupBy}`;
 
       if (
@@ -38,7 +37,6 @@ const ReportEnvironment = ({ data }) => {
     //sample how to get the data out
     // console.log("sample: ", getDataByType(result, "e", "co2", "groups"));
   }, []);
-  console.log(getLatestData(data, "e", "co2", "groups").data);
   return (
     <div className='reportEnvironment'>
       <div className='reportEnvironment-group'>

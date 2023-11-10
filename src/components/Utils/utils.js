@@ -53,9 +53,9 @@ const transformData = (data, typeInfo) => {
               ),
               endPeriod: item["End Period"],
               group: item["Groups"],
-              proportion: item["Proportion (%)"],
+              proportion: parseFloat(item["Proportion (%)"]),
               startPeriod: item["Start Period"],
-              variance: item["Variance (%)"],
+              variance: parseFloat(item["Variance (%)"]),
             };
           });
         case "location":

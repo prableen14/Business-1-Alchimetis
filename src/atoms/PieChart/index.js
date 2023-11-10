@@ -11,7 +11,7 @@ import "./style.scss";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-export default function PieChart({ data, dataKey, label = false }) {
+export default function PieChart({ data, dataKey, label = false, name }) {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <ReChartPieChart width={400} height={400}>
@@ -19,6 +19,7 @@ export default function PieChart({ data, dataKey, label = false }) {
           data={data}
           cx='50%'
           cy='50%'
+          nameKey={name}
           outerRadius={60}
           fill='#8884d8'
           dataKey={dataKey}
