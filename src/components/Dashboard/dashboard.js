@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Title,
   TextAndImage,
@@ -8,14 +8,9 @@ import {
 import { GraphCard } from "../../molecules/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
 import "./style.scss";
-import Summary from "../../data/Summary.json";
 import DataSummary from "../../data/Data_summary.json";
-import { collection, getDocs } from "firebase/firestore";
-import { database } from "../../firebase.js";
-import UsernameDisplay from '../Utils/displayUsername.js';
-// CSV Parser component and hook
-import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
-import useCsvParser from "../../hooks/useCsvParser.js";
+import UsernameDisplay from "../Utils/displayUsername.js";
+
 import HollowPieChart from "../../atoms/HollowPieChart/index.js";
 const Dashboard = (props) => {
   // const { csv, setCSV } = useCsvParser('/temp.csv');
@@ -40,16 +35,16 @@ const Dashboard = (props) => {
   ];
 
   return (
-    <div className="DashBoard">
+    <div className='DashBoard'>
       <Title
-        title="Dashboard"
-        size="large"
+        title='Dashboard'
+        size='large'
         subtitle={`Welcome back  ${UsernameDisplay()}`}
       />
 
-      <div className="analytics-group-card">
-        <div className="analytics-group-card-title">Overview</div>
-        <div className="analytics-group">
+      <div className='analytics-group-card'>
+        <div className='analytics-group-card-title'>Overview</div>
+        <div className='analytics-group'>
           <GraphCard
             content={
               <HollowPieChart
@@ -74,8 +69,8 @@ const Dashboard = (props) => {
                 ]}
               />
             }
-            sublabel="estimation"
-            label="Accrued"
+            sublabel='estimation'
+            label='Accrued'
           />
 
           <GraphCard
@@ -101,13 +96,13 @@ const Dashboard = (props) => {
                 ]}
               />
             }
-            sublabel="estimation"
-            label="Estimated"
+            sublabel='estimation'
+            label='Estimated'
           />
 
           <GraphCard
-            label="Sales"
-            sublabel="estimation"
+            label='Sales'
+            sublabel='estimation'
             dataKey={"value"}
             content={
               <HollowPieChart
@@ -133,7 +128,7 @@ const Dashboard = (props) => {
             }
           />
           <GraphCard
-            sublabel="estimation"
+            sublabel='estimation'
             content={
               <HollowPieChart
                 data={[
@@ -156,78 +151,78 @@ const Dashboard = (props) => {
                 ]}
               />
             }
-            label="Sales"
+            label='Sales'
           />
         </div>
       </div>
 
-      <div className="table-group">
-        <div className="table-group-title">Cost breakdown</div>
+      <div className='table-group'>
+        <div className='table-group-title'>Cost breakdown</div>
         <Table data={DataSummary} columns={tableCol} />
       </div>
 
-      <div className="notification">
-        <div className="notification_chatsub">
-          <Title title="Recent Messages" size="medium" />
-          <div className="notification__chat">
+      <div className='notification'>
+        <div className='notification_chatsub'>
+          <Title title='Recent Messages' size='medium' />
+          <div className='notification__chat'>
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
-              time="2:32pm"
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
             />
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
-              time="2:32pm"
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
             />
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
-              time="2:32pm"
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
             />
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
-              time="2:32pm"
+              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
+              name='Jenny Fox'
+              message='Update on marketing campaign'
+              time='2:32pm'
             />
           </div>
         </div>
-        <div className="notification_todosub">
-          <Title title="Your to-do list" size="medium" />
-          <div className="notification__todo">
+        <div className='notification_todosub'>
+          <Title title='Your to-do list' size='medium' />
+          <div className='notification__todo'>
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
-              date="Jan 18"
-              time="5:00 pm"
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
-              date="Jan 18"
-              time="5:00 pm"
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
-              date="Jan 18"
-              time="5:00 pm"
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
-              date="Jan 18"
-              time="5:00 pm"
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
-              date="Jan 18"
-              time="5:00 pm"
+              title='Choose perfect product idea'
+              date='Jan 18'
+              time='5:00 pm'
             />
           </div>
         </div>
