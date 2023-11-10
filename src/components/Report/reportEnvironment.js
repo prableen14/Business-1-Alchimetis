@@ -55,31 +55,21 @@ const ReportEnvironment = ({ data }) => {
                 xaxisDataKey={"group"}
               />
             }
-            label='MultiFormGraph'
+            label='Activity by groups - Current and Previous CO2'
           />
           <GraphCard
             content={
-              <AreaGraph
-                data={Summary}
-                dataKey={"Accrued"}
-                xAxisDataKey={"Month"}
-                styles={{ fill: "#0bb197", stroke: "#0bb197" }}
+              <PieChart
+                data={getLatestData(data, "e", "co2", "groups").data}
+                dataKey={"proportion"}
+                name={"group"}
+                label={true}
               />
             }
-            label='Activity by groups'
-          />
-          <GraphCard
-            content={
-              <AreaGraph
-                data={Summary}
-                dataKey={"Accrued"}
-                xAxisDataKey={"Month"}
-                styles={{ fill: "#0bb197", stroke: "#0bb197" }}
-              />
-            }
-            label='Activity by groups'
+            label='Activity by groups - Proportion'
           />
         </div>
+
         <div className='reportEnvironment-block'>
           <GraphCard
             content={
@@ -90,7 +80,7 @@ const ReportEnvironment = ({ data }) => {
                 label={true}
               />
             }
-            label='Activity by scope'
+            label='Activity by scope- Proportion'
           />
           <GraphCard
             content={
@@ -103,8 +93,7 @@ const ReportEnvironment = ({ data }) => {
                 radius={0}
               />
             }
-            //   sublabel='esimation'
-            label='Activity by scope'
+            label='Activity by scope - Current and Previous CO2'
           />
         </div>
       </div>
