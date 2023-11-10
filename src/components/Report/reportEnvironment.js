@@ -57,30 +57,6 @@ const ReportEnvironment = ({ data }) => {
           />
           <GraphCard
             content={
-              <AreaGraph
-                data={Summary}
-                dataKey={"Accrued"}
-                xAxisDataKey={"Month"}
-                styles={{ fill: "#0bb197", stroke: "#0bb197" }}
-              />
-            }
-            label='Activity by groups'
-          />
-          <GraphCard
-            content={
-              <AreaGraph
-                data={Summary}
-                dataKey={"Accrued"}
-                xAxisDataKey={"Month"}
-                styles={{ fill: "#0bb197", stroke: "#0bb197" }}
-              />
-            }
-            label='Activity by groups'
-          />
-        </div>
-        <div className='reportEnvironment-block'>
-          <GraphCard
-            content={
               <PieChart
                 data={getLatestData(data, "e", "co2", "scope").data}
                 dataKey={"proportion"}
