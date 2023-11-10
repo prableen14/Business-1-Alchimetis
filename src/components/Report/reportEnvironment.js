@@ -66,6 +66,16 @@ const ReportEnvironment = ({ data }) => {
             }
             label='Activity by groups - Proportion'
           />
+          {/* <GraphCard
+              content={
+                <LineGraph
+                  data={getLatestData(data, "e", "co2", "groups").data}
+                  dataKey={"variance"}
+                  xAxisDataKey={"group"}
+                />
+              }
+              label='Activity by groups - Proportion'
+            /> */}
         </div>
 
         <div className='reportEnvironment-block'>
