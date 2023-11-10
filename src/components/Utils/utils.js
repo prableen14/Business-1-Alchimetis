@@ -39,25 +39,36 @@ const transformData = (data, typeInfo) => {
     const category = typeInfo.split('-')[1]
     const groupBy = typeInfo.split('-')[2]
 
-    if (type == 'e') {
+    if (type === 'e') {
         //logic here
-        if (category == 'co2') {
+        if (category === 'co2') {
             //more here
             switch (groupBy) {
                 case 'group':
                     break;
                 case 'location':
                     break;
-                case 'scope':
-                    break;
+                case 'scope':   
+                    return data.map((item) => {
+                        return {
+                            proportion: parseFloat(item['Proportion (%)']),
+                            measures: item.Measures,
+                        }
+                    })
                 case 'period':
-                    break;
+                    return data.map((item) => {
+                        return {
+                            date: item.Date,
+                            co2: parseFloat(item['CO2e (t)']),
+                            co2Prev: parseFloat(item['CO2e (t)-Previous Period']),
+                        }
+                    })
                 case 'datatype':
                     break;
                 default:
                     return false;
             }
-        } else if (category == 'energy'){
+        } else if (category === 'energy'){
             switch (groupBy) {
                 case 'datatype':
                     break;
@@ -70,7 +81,7 @@ const transformData = (data, typeInfo) => {
 }
 
 const getDataByType = (data, type, category, group) => {
-    return data.find(item => item.type == type && item.category == category && item.groupBy == group)
+    return data.find(item => item.type === type && item.category === category && item.groupBy === group)
 }
 
 const getInitials = name => {
@@ -80,4 +91,20 @@ const getInitials = name => {
     return initials.join('').toUpperCase();
   }
 
-export { parseCsvToJson, transformData, getDataByType, getInitials };
+const getLatestData = (data, type, cateory, groupBy) => {
+    const filteredData = data.filter((item) => item.type === type && item.category === cateory && item.groupBy === groupBy);
+
+    const sortedData = filteredData.sort((a, b) => {
+        // return new Date(a.createdDate) - new Date(b.createdDate)
+        const dateA = a.createdDate.seconds * 1000000000 + a.createdDate.nanoseconds;
+        const dateB = b.createdDate.seconds * 1000000000 + b.createdDate.nanoseconds;
+      
+        return dateB - dateA;
+    });
+
+    return sortedData[0];
+}
+
+export { parseCsvToJson, transformData, getLatestData, getInitials, getDataByType };
+
+
