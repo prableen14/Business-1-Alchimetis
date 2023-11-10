@@ -99,6 +99,13 @@ const getDataByType = (data, type, category, group) => {
   );
 };
 
+const getInitials = (name) => {
+  const words = name.split(" ");
+  const initials = words.map((word) => word.charAt(0));
+
+  return initials.join("").toUpperCase();
+};
+
 const getLatestData = (data, type, cateory, groupBy) => {
   const filteredData = data.filter(
     (item) =>
@@ -120,4 +127,10 @@ const getLatestData = (data, type, cateory, groupBy) => {
   return sortedData[0];
 };
 
-export { parseCsvToJson, transformData, getLatestData, getDataByType };
+export {
+  parseCsvToJson,
+  transformData,
+  getLatestData,
+  getInitials,
+  getDataByType,
+};

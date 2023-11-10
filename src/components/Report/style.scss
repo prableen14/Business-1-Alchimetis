@@ -10,6 +10,7 @@
     &-block {
         display: flex;
         gap: 30px;
+        flex-wrap: wrap;
         
         &-title {
             width: 30%;
@@ -22,7 +23,7 @@
         }
         
         .graphCard {
-            width: 50%;
+            width: 45%;
             background-color: $secondary-blue;
         }
     }

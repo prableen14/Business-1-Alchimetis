@@ -42,7 +42,7 @@ const ReportEnvironment = ({ data }) => {
   return (
     <div className='reportEnvironment'>
       <div className='reportEnvironment-group'>
-        <div className='reportEnvironment-block-title'>CO2</div>
+        <div className='reportEnvironment-block-title'>Carbon footprint</div>
         <div className='reportEnvironment-block'>
           <GraphCard
             content={
@@ -102,7 +102,7 @@ const ReportEnvironment = ({ data }) => {
           className='reportEnvironment-block-title'
           style={{ color: "#564ab1", borderColor: "#564ab1" }}
         >
-          Energy
+          Energy Management
         </div>
         <div className='reportEnvironment-block'>
           <GraphCard
