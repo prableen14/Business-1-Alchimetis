@@ -18,7 +18,7 @@ const MultiFormGraph = ({ data, charts, xaxisDataKey, styles }) => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <ComposedChart width={800} height={400} data={data}>
-        <XAxis dataKey={xaxisDataKey} />
+        <XAxis dataKey={xaxisDataKey}/>
         <YAxis tickFormatter={(tick) => formatter.format(tick)} width={30} />
         <CartesianGrid strokeDasharray='3 3' />
         <Tooltip />

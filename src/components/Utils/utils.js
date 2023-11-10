@@ -108,7 +108,17 @@ const transformData = (data, typeInfo) => {
             };
           });
         case "datatype":
-          break;
+          return data.map(item => {
+            return {
+                measures: item.Measures,
+                co2e: item['CO2e  (t)'],
+                co2MontlyAve: item['CO2e  (t)-12 Mth Avg'],
+                proportion: item['Proportion (%)'],
+                variance: item['Variance (%)'],
+                startPeriod: item['Start Period'],
+                endPeriod: item['End Period']
+            }
+          })
         default:
           return false;
       }
@@ -161,7 +171,6 @@ const getLatestData = (data, type, cateory, groupBy) => {
       
         return dateB - dateA;
     });
-    console.log('sorted data: ', sortedData[0])
     return sortedData[0];
 }
 

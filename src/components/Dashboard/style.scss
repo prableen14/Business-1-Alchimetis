@@ -1,12 +1,15 @@
 @import "../../index.scss";
+
 .DashBoard {
   .notification {
     display: flex;
     padding: 50px 0;
     justify-content: space-between;
+
     &_chatsub {
       width: 55%;
     }
+
     &__chat {
       background-color: $white;
       padding: 20px 30px;
@@ -16,9 +19,11 @@
         padding-bottom: 15px;
       }
     }
+
     &_todosub {
       width: 40%;
     }
+
     &__todo {
       padding: 20px 25px;
       border-radius: 20px;
@@ -36,7 +41,7 @@
 
   .analytics-group-card {
     margin-top: 16px;
-    background: $secondary-grey;
+    // background: $secondary-grey;
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -49,7 +54,7 @@
 
   .table-group {
     padding: 16px;
-    background: $secondary-grey;
+    // background: $secondary-grey;
     margin-top: 16px;
     display: flex;
     flex-direction: column;
@@ -57,6 +62,30 @@
 
     &-title {
       font-size: 20px;
+    }
+
+    .react-bootstrap-table {
+      font-size: 14px;
+      text-align: center;
+
+      table {
+        thead {
+          tr {
+            th {
+              color: #505D69;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              background-color: white;
+              color: #505D69
+            }
+          }
+        }
+      }
     }
   }
 }

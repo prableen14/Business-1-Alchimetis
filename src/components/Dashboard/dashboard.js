@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 import {
   Title,
   TextAndImage,
@@ -55,27 +55,18 @@ const Dashboard = (props) => {
               <HollowPieChart
                 data={[
                   {
-                    name: "TEST_1",
-                    value: 40,
+                    name: "Green",
+                    value: 17,
                   },
                   {
-                    name: "TEST_2",
-                    value: 35,
-                  },
-                  {
-                    name: "TEST_3",
-                    value: 20,
-                  },
-
-                  {
-                    name: "TEST_4",
+                    name: "Yellow",
                     value: 5,
-                  },
+                  }
                 ]}
               />
             }
-            sublabel="estimation"
-            label="Accrued"
+            // sublabel="estimation"
+            label="All"
           />
 
           <GraphCard
@@ -83,86 +74,56 @@ const Dashboard = (props) => {
               <HollowPieChart
                 data={[
                   {
-                    name: "TEST_1",
-                    value: 40,
+                    name: "Green",
+                    value: 9,
                   },
                   {
-                    name: "TEST_2",
-                    value: 35,
-                  },
-                  {
-                    name: "TEST_4",
-                    value: 5,
-                  },
-                  {
-                    name: "TEST_3",
-                    value: 20,
-                  },
+                    name: "Yellow",
+                    value: 3,
+                  }
                 ]}
               />
             }
-            sublabel="estimation"
-            label="Estimated"
+            // sublabel="estimation"
+            label="Environmental"
           />
 
           <GraphCard
-            label="Sales"
-            sublabel="estimation"
-            dataKey={"value"}
+            // dataKey={"name"}
             content={
               <HollowPieChart
                 data={[
                   {
-                    name: "TEST_2",
-                    value: 35,
+                    name: "Green",
+                    value: 2,
                   },
                   {
-                    name: "TEST_3",
-                    value: 20,
-                  },
-                  {
-                    name: "TEST_1",
-                    value: 40,
-                  },
-                  {
-                    name: "TEST_4",
-                    value: 5,
-                  },
+                    name: "Yellow",
+                    value: 2,
+                  }
                 ]}
-              />
-            }
+                />
+              }
+            label="Social"
           />
           <GraphCard
-            sublabel="estimation"
             content={
               <HollowPieChart
                 data={[
                   {
-                    name: "TEST_2",
-                    value: 35,
-                  },
-                  {
-                    name: "TEST_1",
-                    value: 40,
-                  },
-                  {
-                    name: "TEST_3",
-                    value: 20,
-                  },
-                  {
-                    name: "TEST_4",
-                    value: 5,
-                  },
+                    name: "Green",
+                    value: 6,
+                  }
                 ]}
               />
             }
-            label="Sales"
+            label="Governance"
           />
         </div>
       </div>
 
       <div className="table-group">
-        <div className="table-group-title">Cost breakdown</div>
+        <div className="table-group-title">Top Level Goals Summary</div>
         <Table data={DataSummary} columns={tableCol} />
       </div>
 

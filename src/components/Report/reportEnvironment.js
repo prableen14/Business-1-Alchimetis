@@ -8,8 +8,40 @@ import {
   PieChart,
   BarGraph,
   MultiFormGraph,
+  Table,
 } from "../../atoms/index.js";
 import { getDataByType, getLatestData } from "../Utils/utils.js";
+
+const co2TableCol = [
+  {
+    dataField: "measures",
+    text: "Measures",
+  },
+  {
+    dataField: "co2e",
+    text: "Co2e",
+  },
+  {
+    dataField: "co2MontlyAve",
+    text: "CO2e  (t)-12 Mth Avg",
+  },
+  {
+    dataField: "proportion",
+    text: "Proportion (%)",
+  },
+  {
+    dataField: "variance",
+    text: "Variance (%)",
+  },
+  {
+    dataField: "startPeriod",
+    text: "Start Period",
+  },
+  {
+    dataField: "endPeriod",
+    text: "End Period",
+  },
+]
 
 const ReportEnvironment = ({ data }) => {
   const [finalData, setFinalData] = useState([]);
@@ -32,7 +64,6 @@ const ReportEnvironment = ({ data }) => {
 
     // Convert the grouped data back to an array
     const result = Object.values(groupedData);
-    console.log('result: ', result)
     setFinalData(result);
   }, []);
   return (
@@ -66,7 +97,7 @@ const ReportEnvironment = ({ data }) => {
           />
         </div>
         <div className='reportEnvironment-block'>
-        <GraphCard
+          <GraphCard
             content={
               <PieChart
                 data={getLatestData(data, "e", "co2", "location").data}
@@ -90,7 +121,7 @@ const ReportEnvironment = ({ data }) => {
             }
             label='Activity by Locations - Current and Previous CO2'
           />
-     
+
         </div>
 
         <div className='reportEnvironment-block'>
@@ -119,6 +150,13 @@ const ReportEnvironment = ({ data }) => {
             label='Activity by scope- Proportion'
           />
         </div>
+        {getLatestData(data, "e", "co2", "datatype") && 
+          <div className="reportEnvironment-table-group">
+            <div className="reportEnvironment-table-group-title">CO2 Emission by group</div>
+            <Table data={getLatestData(data, "e", "co2", "datatype").data}
+              columns={co2TableCol}  />
+          </div>
+        }
       </div>
       <div className='reportEnvironment-group'>
         <div
@@ -128,33 +166,22 @@ const ReportEnvironment = ({ data }) => {
           Energy Management
         </div>
         <div className='reportEnvironment-block'>
-          {/* <GraphCard
-            content={
-              <LineGraph
-                data={getLatestData(data, "e", "energy", "datatype").data}
-                dataKey={"Estimated"}
-                dataKey2={"Actual"}
-                xAxisDataKey={"time"}
-                yAxisDataKey={"actual"}
-                styles={{ fill: "#564ab1", stroke: "#564ab1" }}
-              />
-            }
-            //   sublabel='esimation'
-            label='Activity by datatype'
-          /> */}
           <GraphCard
             content={
               <MultiFormGraph
                 data={getLatestData(data, "e", "energy", "period").data}
                 charts={[
-                  { dataKey: "actual", type: "line" },
                   { dataKey: "estimated", type: "bar" },
+                  { dataKey: "actual", type: "line" },
                 ]}
-                styles={{"line": { fill: "#564ab1", stroke: "#564ab1" },
-                          "bar": { fill: "#0bb197", stroke: "#0bb197" }}}
+                styles={{
+                  "line": { fill: "#0bb197", stroke: "#0bb197" },
+                  "bar": { fill: "#564ab1", stroke: "#564ab1" }
+                }}
+                xaxisDataKey={"time"}
               />
             }
-            label='Activity by datatype'
+            label='Energy consumed (GJ)'
           />
         </div>
       </div>
