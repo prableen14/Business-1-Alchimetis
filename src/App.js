@@ -6,7 +6,7 @@ import { Filter, Profile } from "./atoms/index.js";
 import { SideNav } from "./molecules/index";
 import Router from "./router/router";
 import { useLocation } from "react-router-dom";
-import UserDetails from "./utils/userDetails"
+import UserDetails from "./components/Utils/userDetails"
 const App = (props) => {
   const location = useLocation();
   const [user, setUser] = useState(null);

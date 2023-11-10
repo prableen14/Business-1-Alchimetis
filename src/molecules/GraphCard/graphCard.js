@@ -10,12 +10,12 @@ const GraphCard = (props) => {
           <div className='graphCard-header-title'>{props?.label}</div>
           <div className='graphCard-header-value'>{props?.sublabel}</div>
         </div>
-
+{props?.image &&
         <img
           src={props?.image || Store}
           alt='card icon'
           className='graphCard-header-icon'
-        />
+        />}
       </div>
 
       <div className='graphCard-chart'>{props?.content}</div>

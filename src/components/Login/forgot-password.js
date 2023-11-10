@@ -5,8 +5,8 @@ import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 import { useNavigate } from "react-router-dom";
 import { sendPasswordResetEmail, getAuth } from "firebase/auth";
 import { auth } from "../../firebase";
-import { validateEmail } from '../../utils/validation';
-import checkIfEmailExists from "../../utils/checkIfEmailExists"; 
+import { validateEmail } from '../Utils/validation';
+import checkIfEmailExists from "../Utils/checkIfEmailExists"; 
 const ForgotPassword = (props) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
