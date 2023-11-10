@@ -1,7 +1,7 @@
 @import "../../index.scss";
 .profile-container {
   display: flex;
-  gap: 20px; 
+  gap: 10px; 
 
   &_avatar {
     display: flex;
@@ -24,14 +24,12 @@
     &-name {
       font-weight: 500;
       font-size: 14px;
-      line-height: 15px;
       color: #38393C;
     }
 
     &-email {
       font-weight: 500;
-      font-size: 16px;  
-      line-height: 24px;
+      font-size: 12px;  
       color: #ABAEB7;
       ;
     }

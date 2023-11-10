@@ -13,6 +13,7 @@ import LineGraph from "./LineGraph/index.js";
 import Table from "./Table/table.js";
 import PieChart from "./PieChart/index.js";
 import BarGraph from "./BarGraph/index.js";
+import Avatar from "./Avatar/avatar.js";
 import MultiFormGraph from "./MultiFormGraph/multiFormGraph.js";
 export {
   Title,
@@ -29,5 +30,6 @@ export {
   Table,
   PieChart,
   BarGraph,
+  Avatar,
   MultiFormGraph,
 };
