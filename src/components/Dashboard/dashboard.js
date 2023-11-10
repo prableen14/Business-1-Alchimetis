@@ -12,8 +12,7 @@ import Summary from "../../data/Summary.json";
 import DataSummary from "../../data/Data_summary.json";
 import { collection, getDocs } from "firebase/firestore";
 import { database } from "../../firebase.js";
-
-import UsernameDisplay from "../../utils/displayUsername.js";
+import UsernameDisplay from '../Utils/displayUsername.js';
 // CSV Parser component and hook
 import CsvInput from "../../atoms/CsvInput/CsvInput.jsx";
 import useCsvParser from "../../hooks/useCsvParser.js";

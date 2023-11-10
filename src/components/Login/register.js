@@ -4,7 +4,7 @@ import { Title, Textbox, Button } from "../../atoms";
 import LeafBlue from "../../assets/images/companyLeafBlue.svg";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
-import { validateName, validateUsername,  validateEmail,validatePassword } from '../../utils/validation';
+import { validateName, validateUsername,  validateEmail,validatePassword } from '../Utils/validation';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, database } from '../../firebase'; 
 import { collection, addDoc } from "firebase/firestore";

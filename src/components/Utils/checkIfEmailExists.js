@@ -1,5 +1,5 @@
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { database } from '../firebase';
+import { database } from '../../firebase';
 
 const checkIfEmailExists = async (email) => {
   try {

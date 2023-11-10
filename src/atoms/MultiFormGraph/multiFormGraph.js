@@ -12,25 +12,33 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const MultiFormGraph = ({ data, charts }) => {
+const formatter = Intl.NumberFormat("en", { notation: "compact" });
+
+const MultiFormGraph = ({ data, charts, xaxisDataKey }) => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <ComposedChart width={800} height={400} data={data}>
-        <XAxis dataKey='Month' />
-        <YAxis />
+        <XAxis dataKey={xaxisDataKey} />
+        <YAxis tickFormatter={(tick) => formatter.format(tick)} width={30} />
         <CartesianGrid strokeDasharray='3 3' />
         <Tooltip />
         <Legend />
-        {charts?.map((chart) => {
+        {charts?.map((chart, index) => {
           if (chart.type === "bar") {
-            return <Bar dataKey={chart.dataKey} fill='#8884d8' />;
+            return <Bar key={index} dataKey={chart.dataKey} fill='#8884d8' />;
           } else if (chart.type === "line") {
             return (
-              <Line type='monotone' dataKey={chart.dataKey} stroke='#82ca9d' />
+              <Line
+                type='monotone'
+                key={index}
+                dataKey={chart.dataKey}
+                stroke='#82ca9d'
+              />
             );
           } else if (chart.type === "area") {
             return (
               <Area
+                key={index}
                 type='monotone'
                 dataKey={chart.dataKey}
                 stroke='#ffc658'
