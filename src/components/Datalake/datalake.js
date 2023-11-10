@@ -127,6 +127,7 @@ const Datalake = () => {
       <p><a href="https://app.degoo.com/share/2x52eP9til_hfjMvpwX8yg"
             target="_blank"
             rel="noreferrer"
+            className="datalake-body-btn"
             >Click here</a> to view sample csv files</p>
       <div
         onDrop={handleDrop}
