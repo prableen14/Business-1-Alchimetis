@@ -20,14 +20,14 @@ export default function LineGraph({ data, dataKey, xAxisDataKey, styles }) {
           dataKey={xAxisDataKey}
           // tickFormatter={(tick) => tick[0]}
         />
-        <YAxis tickFormatter={(tick) => formatter.format(tick)} width={20} />
+        <YAxis tickFormatter={(tick) => formatter.format(tick)} width={30} />
         <Tooltip />
 
         <Line
           type='monotone'
           dataKey={dataKey}
-          stroke={styles?.stroke ?? '#8884d8'}
-          fill={styles?.fill ?? 'none'}
+          stroke={styles?.stroke ?? "#8884d8"}
+          fill={styles?.fill ?? "none"}
           strokeWidth={2}
         />
       </LineChart>
