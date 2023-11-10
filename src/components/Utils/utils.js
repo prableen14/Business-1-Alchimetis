@@ -34,15 +34,34 @@ const parseCsvToJson = (file) => {
   });
 };
 
+const transformDateFormat = (inputDate) => {
+    if (!inputDate) return
+    var parts = inputDate.split('/');
+    var month = parseInt(parts[0]);
+    var day = parseInt(parts[1]);
+    var year = parseInt(parts[2]);
+
+    var date = new Date(year, month - 1, day);
+
+    var monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    var monthName = monthNames[date.getMonth()];
+
+    var transformedDate = monthName + ' ' + year;
+
+    return transformedDate;
+}
+
 const transformData = (data, typeInfo) => {
   const type = typeInfo.split("-")[0];
   const category = typeInfo.split("-")[1];
   const groupBy = typeInfo.split("-")[2];
   console.log(typeInfo);
   if (type === "e") {
-    //logic here
     if (category === "co2") {
-      //more here
       switch (groupBy) {
         case "groups":
           return data.map((item) => {
@@ -95,8 +114,16 @@ const transformData = (data, typeInfo) => {
       }
     } else if (category === "energy") {
       switch (groupBy) {
-        case "datatype":
-          break;
+        case 'period':
+            return data.map(item => {
+                return {
+                    time: item.Month,
+                    actual: parseFloat(item.Actual),
+                    accrued: parseFloat(item.Accrued),
+                    estimated: parseFloat(item.Estimated),
+                    costPerGJ: parseFloat(item['Cost per GJ']),
+                }
+            })
         default:
           return false;
       }
@@ -127,23 +154,21 @@ const getLatestData = (data, type, cateory, groupBy) => {
       item.groupBy === groupBy
   );
 
-  const sortedData = filteredData.sort((a, b) => {
-    // return new Date(a.createdDate) - new Date(b.createdDate)
-    const dateA =
-      a.createdDate.seconds * 1000000000 + a.createdDate.nanoseconds;
-    const dateB =
-      b.createdDate.seconds * 1000000000 + b.createdDate.nanoseconds;
-
-    return dateB - dateA;
-  });
-
-  return sortedData[0];
-};
+    const sortedData = filteredData.sort((a, b) => {
+        // return new Date(a.createdDate) - new Date(b.createdDate)
+        const dateA = a.createdDate.seconds * 1000000000 + a.createdDate.nanoseconds;
+        const dateB = b.createdDate.seconds * 1000000000 + b.createdDate.nanoseconds;
+      
+        return dateB - dateA;
+    });
+    console.log('sorted data: ', sortedData[0])
+    return sortedData[0];
+}
 
 export {
-  parseCsvToJson,
-  transformData,
-  getLatestData,
-  getInitials,
-  getDataByType,
+    parseCsvToJson,
+    transformData,
+    getLatestData, getInitials,
+    getDataByType,
+    transformDateFormat
 };

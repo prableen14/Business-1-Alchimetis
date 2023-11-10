@@ -14,7 +14,7 @@ const dataTypeList = {
   "e-co2-scope": "Environment - CO2 - Activity by scopes",
   "e-co2-period": "Environment - CO2 - Activity by periods",
   "e-co2-datatype": "Environment - CO2 - Activity by datatype",
-  "e-energy-datatype": "Environment - Energy - Activity by periods",
+  "e-energy-period": "Environment - Energy - Activity by periods",
 }
 
 const Datalake = () => {

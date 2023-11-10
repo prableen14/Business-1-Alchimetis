@@ -32,10 +32,8 @@ const ReportEnvironment = ({ data }) => {
 
     // Convert the grouped data back to an array
     const result = Object.values(groupedData);
+    console.log('result: ', result)
     setFinalData(result);
-
-    //sample how to get the data out
-    // console.log("sample: ", getDataByType(result, "e", "co2", "groups"));
   }, []);
   return (
     <div className='reportEnvironment'>
@@ -130,17 +128,33 @@ const ReportEnvironment = ({ data }) => {
           Energy Management
         </div>
         <div className='reportEnvironment-block'>
-          <GraphCard
+          {/* <GraphCard
             content={
               <LineGraph
-                data={Summary}
+                data={getLatestData(data, "e", "energy", "datatype").data}
                 dataKey={"Estimated"}
-                xAxisDataKey={"Month"}
+                dataKey2={"Actual"}
+                xAxisDataKey={"time"}
+                yAxisDataKey={"actual"}
                 styles={{ fill: "#564ab1", stroke: "#564ab1" }}
               />
             }
             //   sublabel='esimation'
-            label='Activity by scope'
+            label='Activity by datatype'
+          /> */}
+          <GraphCard
+            content={
+              <MultiFormGraph
+                data={getLatestData(data, "e", "energy", "period").data}
+                charts={[
+                  { dataKey: "actual", type: "line" },
+                  { dataKey: "estimated", type: "bar" },
+                ]}
+                styles={{"line": { fill: "#564ab1", stroke: "#564ab1" },
+                          "bar": { fill: "#0bb197", stroke: "#0bb197" }}}
+              />
+            }
+            label='Activity by datatype'
           />
         </div>
       </div>

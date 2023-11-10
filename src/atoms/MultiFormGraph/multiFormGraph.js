@@ -14,7 +14,7 @@ import {
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
-const MultiFormGraph = ({ data, charts, xaxisDataKey }) => {
+const MultiFormGraph = ({ data, charts, xaxisDataKey, styles }) => {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <ComposedChart width={800} height={400} data={data}>
@@ -25,14 +25,14 @@ const MultiFormGraph = ({ data, charts, xaxisDataKey }) => {
         <Legend />
         {charts?.map((chart, index) => {
           if (chart.type === "bar") {
-            return <Bar key={index} dataKey={chart.dataKey} fill='#8884d8' />;
+            return <Bar key={index} dataKey={chart.dataKey} fill={(styles && styles['bar']?.fill) ?? '#8884d8'} />;
           } else if (chart.type === "line") {
             return (
               <Line
                 type='monotone'
                 key={index}
                 dataKey={chart.dataKey}
-                stroke='#82ca9d'
+                stroke={(styles && styles['line']?.stroke) ?? '#82ca9d'}
               />
             );
           } else if (chart.type === "area") {
@@ -41,8 +41,8 @@ const MultiFormGraph = ({ data, charts, xaxisDataKey }) => {
                 key={index}
                 type='monotone'
                 dataKey={chart.dataKey}
-                stroke='#ffc658'
-                fill='#ffc658'
+                stroke={(styles && styles['area']?.stroke) ?? '#ffc658'}
+                fill={(styles && styles['area']?.fill) ?? '#ffc658'}
               />
             );
           }
