@@ -8,8 +8,40 @@ import {
   PieChart,
   BarGraph,
   MultiFormGraph,
+  Table,
 } from "../../atoms/index.js";
 import { getDataByType, getLatestData } from "../Utils/utils.js";
+
+const co2TableCol = [
+  {
+    dataField: "measures",
+    text: "Measures",
+  },
+  {
+    dataField: "co2e",
+    text: "Co2e",
+  },
+  {
+    dataField: "co2MontlyAve",
+    text: "CO2e  (t)-12 Mth Avg",
+  },
+  {
+    dataField: "proportion",
+    text: "Proportion (%)",
+  },
+  {
+    dataField: "variance",
+    text: "Variance (%)",
+  },
+  {
+    dataField: "startPeriod",
+    text: "Start Period",
+  },
+  {
+    dataField: "endPeriod",
+    text: "End Period",
+  },
+]
 
 const ReportEnvironment = ({ data }) => {
   const [finalData, setFinalData] = useState([]);
@@ -33,9 +65,6 @@ const ReportEnvironment = ({ data }) => {
     // Convert the grouped data back to an array
     const result = Object.values(groupedData);
     setFinalData(result);
-
-    //sample how to get the data out
-    // console.log("sample: ", getDataByType(result, "e", "co2", "groups"));
   }, []);
   return (
     <div className='reportEnvironment'>
@@ -130,6 +159,13 @@ const ReportEnvironment = ({ data }) => {
             label='Activity by scope- Proportion'
           />
         </div>
+        {getLatestData(data, "e", "co2", "datatype") && 
+          <div className="reportEnvironment-table-group">
+            <div className="reportEnvironment-table-group-title">CO2 Emission by group</div>
+            <Table data={getLatestData(data, "e", "co2", "datatype").data}
+              columns={co2TableCol}  />
+          </div>
+        }
       </div>
       <div className='reportEnvironment-group'>
         <div
@@ -141,15 +177,20 @@ const ReportEnvironment = ({ data }) => {
         <div className='reportEnvironment-block'>
           <GraphCard
             content={
-              <LineGraph
-                data={Summary}
-                dataKey={"Estimated"}
-                xAxisDataKey={"Month"}
-                styles={{ fill: "#564ab1", stroke: "#564ab1" }}
+              <MultiFormGraph
+                data={getLatestData(data, "e", "energy", "period").data}
+                charts={[
+                  { dataKey: "estimated", type: "bar" },
+                  { dataKey: "actual", type: "line" },
+                ]}
+                styles={{
+                  "line": { fill: "#0bb197", stroke: "#0bb197" },
+                  "bar": { fill: "#564ab1", stroke: "#564ab1" }
+                }}
+                xaxisDataKey={"time"}
               />
             }
-            //   sublabel='esimation'
-            label='Activity by scope'
+            label='Energy consumed (GJ)'
           />
         </div>
       </div>

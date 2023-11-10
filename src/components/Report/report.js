@@ -5,6 +5,7 @@ import { database } from "../../firebase.js";
 import Tabs from 'react-bootstrap/Tabs'; 
 import Tab from 'react-bootstrap/Tab';
 import ReportEnvironment from "./reportEnvironment.js";
+import ComingSoon from "../ComingSoon/commingSoon.js";
 import "./style.scss";
 
 const Report = () => {
@@ -47,10 +48,10 @@ const Report = () => {
           <ReportEnvironment data={data}/>
         </Tab> 
         <Tab eventKey="second" title="Social"> 
-          Hii, I am 2nd tab content 
+           <ComingSoon />
         </Tab> 
         <Tab eventKey="third" title="Government"> 
-          Hii, I am 3rd tab content 
+           <ComingSoon />
         </Tab> 
       </Tabs> 
     </div>

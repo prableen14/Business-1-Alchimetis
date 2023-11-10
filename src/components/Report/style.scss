@@ -27,4 +27,36 @@
             background-color: $secondary-blue;
         }
     }
+
+    &-table-group {
+        margin-bottom: 20px;
+        &-title {
+            font-weight: 500;
+            font-size: 20px;
+            color: #abaeb7;
+            margin-bottom: 20px;
+        }
+
+        .react-bootstrap-table {
+            font-size: 14px;
+            text-align: center;
+            table {
+                thead {
+                    tr {
+                        th {
+                            color: #505D69;
+                        }
+                    }       
+                }
+                tbody {
+                    tr {
+                        td {
+                            background-color: white;
+                            color: #505D69
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
