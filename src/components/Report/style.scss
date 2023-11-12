@@ -1,7 +1,13 @@
 @import "../../index.scss";
 
 .report {
+    display: flex;
+    flex-direction: column;
+}
 
+.print_btn{
+    align-self: flex-end;
+    width: fit-content;
 }
 
 .reportEnvironment {
