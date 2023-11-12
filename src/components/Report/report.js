@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ThreeDots } from 'react-loader-spinner';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { database } from "../../firebase.js";
@@ -7,10 +7,19 @@ import Tab from 'react-bootstrap/Tab';
 import ReportEnvironment from "./reportEnvironment.js";
 import ComingSoon from "../ComingSoon/commingSoon.js";
 import "./style.scss";
+import { useReactToPrint } from "react-to-print";
 
 const Report = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null)
+
+  const componentRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'Report',
+    onAfterPrint: () => console.log('Printed PDF successfully!'),
+   });
 
   useEffect(() => {
     const queryFirestore = async () => {
@@ -42,7 +51,8 @@ const Report = () => {
   }
 
   return (
-    <div className='report'>
+    <div ref={componentRef} className='report'>
+      <button className="btn btn-primary print_btn" onClick={handlePrint}>Print</button>
       <Tabs defaultActiveKey="first"> 
         <Tab eventKey="first" title="Environment">
           <ReportEnvironment data={data}/>
