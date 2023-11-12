@@ -51,19 +51,21 @@ const Report = () => {
   }
 
   return (
-    <div ref={componentRef} className='report'>
+    <div className='report'>
       <button className="btn btn-primary print_btn" onClick={handlePrint}>Print</button>
-      <Tabs defaultActiveKey="first"> 
-        <Tab eventKey="first" title="Environment">
-          <ReportEnvironment data={data}/>
-        </Tab> 
-        <Tab eventKey="second" title="Social"> 
-           <ComingSoon />
-        </Tab> 
-        <Tab eventKey="third" title="Government"> 
-           <ComingSoon />
-        </Tab> 
-      </Tabs> 
+      <div ref={componentRef} > 
+        <Tabs defaultActiveKey="first"> 
+          <Tab eventKey="first" title="Environment">
+            <ReportEnvironment data={data}/>
+          </Tab> 
+          <Tab eventKey="second" title="Social"> 
+            <ComingSoon />
+          </Tab> 
+          <Tab eventKey="third" title="Government"> 
+            <ComingSoon />
+          </Tab> 
+        </Tabs> 
+      </div>
     </div>
   );
 };
