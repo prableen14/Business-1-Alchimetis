@@ -12,6 +12,7 @@ import DataSummary from "../../data/Data_summary.json";
 import UsernameDisplay from "../Utils/displayUsername.js";
 
 import HollowPieChart from "../../atoms/HollowPieChart/index.js";
+import { capitalizeFirstChar } from "../Utils/utils.js";
 const Dashboard = (props) => {
   // const { csv, setCSV } = useCsvParser('/temp.csv');
   const tableCol = [
@@ -38,8 +39,8 @@ const Dashboard = (props) => {
     <div className='DashBoard'>
       <Title
         title='Dashboard'
-        size='large'
-        subtitle={`Welcome back  ${UsernameDisplay()}`}
+        size='medium'
+        subtitle={`Welcome back  ${capitalizeFirstChar(UsernameDisplay())}`}
       />
 
       <div className='analytics-group-card'>
@@ -115,7 +116,7 @@ const Dashboard = (props) => {
       </div>
 
       <div className='table-group'>
-        <div className='table-group-title'>Cost breakdown</div>
+        <div className='table-group-title'>Top Level Goals Summary</div>
         <Table data={DataSummary} columns={tableCol} />
       </div>
 

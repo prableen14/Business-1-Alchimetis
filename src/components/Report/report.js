@@ -8,6 +8,7 @@ import ReportEnvironment from "./reportEnvironment.js";
 import ComingSoon from "../ComingSoon/commingSoon.js";
 import "./style.scss";
 import { useReactToPrint } from "react-to-print";
+import { Title } from "../../atoms/index.js";
 
 const Report = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,6 +53,11 @@ const Report = () => {
 
   return (
     <div className='report'>
+      <Title
+        title='Report'
+        size='medium'
+        subtitle='ESG framework: GRI'
+      />
       <button className="btn btn-primary print_btn" onClick={handlePrint}>Print</button>
       <div ref={componentRef} > 
         <Tabs defaultActiveKey="first"> 

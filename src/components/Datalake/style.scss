@@ -1,6 +1,21 @@
 @import "../../index.scss";
 
 .datalake {
+  &-info {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-top: 20px;
+    transition: color .2s;
+
+    &:hover {
+      color: $primary-green;
+    }
+
+    img {
+      width: 20px;
+    }
+  }
   &-body {
     border: 2px dashed #ccc;
     padding: 20px;
@@ -42,6 +57,7 @@
 
       &-label {
         margin-right: 20px;
+        min-width: 185px;
       }
 
       &-form {

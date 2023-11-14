@@ -50,18 +50,18 @@ const SideNav = (props) => {
             <span>Data Lake</span>
           </div>
           <div
-            className={`pagesNav ${currLocation === "action" ? "current" : ""}`}
-            onClick={() => currLocation !== "action" ? navigate("/action") : null}
-          >
-            <img src={AnalysticsIcon} alt="AnalysticsIcon" />
-            <span>Action</span>
-          </div>
-          <div
             className={`pagesNav ${currLocation === "report" ? "current" : ""}`}
             onClick={() => currLocation !== "report" ? navigate("/report") : null}
           >
             <img src={ReportIcon} alt="ReportIcon" />
             <span>Reports</span>
+          </div>
+          <div
+            className={`pagesNav ${currLocation === "action" ? "current" : ""}`}
+            onClick={() => currLocation !== "action" ? navigate("/action") : null}
+          >
+            <img src={AnalysticsIcon} alt="AnalysticsIcon" />
+            <span>Action</span>
           </div>
         </div>
       </div>
