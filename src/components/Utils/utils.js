@@ -34,6 +34,11 @@ const parseCsvToJson = (file) => {
   });
 };
 
+const capitalizeFirstChar = str => {
+  if (!str) return ""
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 const transformDateFormat = (inputDate) => {
     if (!inputDate) return
     var parts = inputDate.split('/');
@@ -179,5 +184,6 @@ export {
     transformData,
     getLatestData, getInitials,
     getDataByType,
-    transformDateFormat
+    transformDateFormat,
+    capitalizeFirstChar
 };
