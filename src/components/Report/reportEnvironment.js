@@ -41,7 +41,7 @@ const co2TableCol = [
     dataField: "endPeriod",
     text: "End Period",
   },
-]
+];
 
 const ReportEnvironment = ({ data }) => {
   const [finalData, setFinalData] = useState([]);
@@ -95,16 +95,6 @@ const ReportEnvironment = ({ data }) => {
             }
             label='Activity by groups - Proportion'
           />
-          {/* <GraphCard
-              content={
-                <LineGraph
-                  data={getLatestData(data, "e", "co2", "groups").data}
-                  dataKey={"variance"}
-                  xAxisDataKey={"group"}
-                />
-              }
-              label='Activity by groups - Proportion'
-            /> */}
         </div>
         <div className='reportEnvironment-block'>
           <GraphCard
@@ -159,13 +149,17 @@ const ReportEnvironment = ({ data }) => {
             label='Activity by scope- Proportion'
           />
         </div>
-        {getLatestData(data, "e", "co2", "datatype") && 
-          <div className="reportEnvironment-table-group">
-            <div className="reportEnvironment-table-group-title">CO2 Emission by group</div>
-            <Table data={getLatestData(data, "e", "co2", "datatype").data}
-              columns={co2TableCol}  />
+        {getLatestData(data, "e", "co2", "datatype") && (
+          <div className='reportEnvironment-table-group'>
+            <div className='reportEnvironment-table-group-title'>
+              CO2 Emission by group
+            </div>
+            <Table
+              data={getLatestData(data, "e", "co2", "datatype").data}
+              columns={co2TableCol}
+            />
           </div>
-        }
+        )}
       </div>
       <div className='reportEnvironment-group'>
         <div
@@ -184,8 +178,8 @@ const ReportEnvironment = ({ data }) => {
                   { dataKey: "actual", type: "line" },
                 ]}
                 styles={{
-                  "line": { fill: "#0bb197", stroke: "#0bb197" },
-                  "bar": { fill: "#564ab1", stroke: "#564ab1" }
+                  line: { fill: "#0bb197", stroke: "#0bb197" },
+                  bar: { fill: "#564ab1", stroke: "#564ab1" },
                 }}
                 xaxisDataKey={"time"}
               />
