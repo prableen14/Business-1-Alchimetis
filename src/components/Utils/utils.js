@@ -34,31 +34,41 @@ const parseCsvToJson = (file) => {
   });
 };
 
-const capitalizeFirstChar = str => {
-  if (!str) return ""
+const capitalizeFirstChar = (str) => {
+  if (!str) return "";
   return str.charAt(0).toUpperCase() + str.slice(1);
-}
+};
 
 const transformDateFormat = (inputDate) => {
-    if (!inputDate) return
-    var parts = inputDate.split('/');
-    var month = parseInt(parts[0]);
-    var day = parseInt(parts[1]);
-    var year = parseInt(parts[2]);
+  if (!inputDate) return;
+  var parts = inputDate.split("/");
+  var month = parseInt(parts[0]);
+  var day = parseInt(parts[1]);
+  var year = parseInt(parts[2]);
 
-    var date = new Date(year, month - 1, day);
+  var date = new Date(year, month - 1, day);
 
-    var monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
+  var monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-    var monthName = monthNames[date.getMonth()];
+  var monthName = monthNames[date.getMonth()];
 
-    var transformedDate = monthName + ' ' + year;
+  var transformedDate = monthName + " " + year;
 
-    return transformedDate;
-}
+  return transformedDate;
+};
 
 const transformData = (data, typeInfo) => {
   const type = typeInfo.split("-")[0];
@@ -113,32 +123,32 @@ const transformData = (data, typeInfo) => {
             };
           });
         case "datatype":
-          return data.map(item => {
+          return data.map((item) => {
             return {
-                measures: item.Measures,
-                co2e: item['CO2e  (t)'],
-                co2MontlyAve: item['CO2e  (t)-12 Mth Avg'],
-                proportion: item['Proportion (%)'],
-                variance: item['Variance (%)'],
-                startPeriod: item['Start Period'],
-                endPeriod: item['End Period']
-            }
-          })
+              measures: item.Measures,
+              co2e: item["CO2e  (t)"],
+              co2MontlyAve: item["CO2e  (t)-12 Mth Avg"],
+              proportion: item["Proportion (%)"],
+              variance: item["Variance (%)"],
+              startPeriod: item["Start Period"],
+              endPeriod: item["End Period"],
+            };
+          });
         default:
           return false;
       }
     } else if (category === "energy") {
       switch (groupBy) {
-        case 'period':
-            return data.map(item => {
-                return {
-                    time: item.Month,
-                    actual: parseFloat(item.Actual),
-                    accrued: parseFloat(item.Accrued),
-                    estimated: parseFloat(item.Estimated),
-                    costPerGJ: parseFloat(item['Cost per GJ']),
-                }
-            })
+        case "period":
+          return data.map((item) => {
+            return {
+              time: item.Month,
+              actual: parseFloat(item.Actual),
+              accrued: parseFloat(item.Accrued),
+              estimated: parseFloat(item.Estimated),
+              costPerGJ: parseFloat(item["Cost per GJ"]),
+            };
+          });
         default:
           return false;
       }
@@ -169,21 +179,43 @@ const getLatestData = (data, type, cateory, groupBy) => {
       item.groupBy === groupBy
   );
 
-    const sortedData = filteredData.sort((a, b) => {
-        // return new Date(a.createdDate) - new Date(b.createdDate)
-        const dateA = a.createdDate.seconds * 1000000000 + a.createdDate.nanoseconds;
-        const dateB = b.createdDate.seconds * 1000000000 + b.createdDate.nanoseconds;
-      
-        return dateB - dateA;
-    });
-    return sortedData[0];
-}
+  const sortedData = filteredData.sort((a, b) => {
+    // return new Date(a.createdDate) - new Date(b.createdDate)
+    const dateA =
+      a.createdDate.seconds * 1000000000 + a.createdDate.nanoseconds;
+    const dateB =
+      b.createdDate.seconds * 1000000000 + b.createdDate.nanoseconds;
+
+    return dateB - dateA;
+  });
+  return sortedData[0];
+};
+
+const getLatestDataAll = (data, category) => {
+  const filteredData = data.filter((item) => item.category === category);
+  const latestDataMap = {};
+  filteredData.forEach((item) => {
+    const groupBy = item.groupBy;
+    if (
+      !latestDataMap[groupBy] ||
+      item.createdDate.toMillis() >
+        latestDataMap[groupBy].createdDate.toMillis()
+    ) {
+      latestDataMap[groupBy] = item;
+    }
+  });
+
+  const latestDataForEachGroupBy = Object.values(latestDataMap);
+  return latestDataForEachGroupBy;
+};
 
 export {
-    parseCsvToJson,
-    transformData,
-    getLatestData, getInitials,
-    getDataByType,
-    transformDateFormat,
-    capitalizeFirstChar
+  parseCsvToJson,
+  transformData,
+  getLatestData,
+  getInitials,
+  getDataByType,
+  transformDateFormat,
+  capitalizeFirstChar,
+  getLatestDataAll,
 };

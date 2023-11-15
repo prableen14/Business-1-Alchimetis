@@ -1,68 +1,71 @@
 @import "../../index.scss";
 
 .report {
+  display: flex;
+  flex-direction: column;
+  .downloadBtn {
     display: flex;
-    flex-direction: column;
-}
-
-.print_btn{
-    align-self: flex-end;
-    width: fit-content;
+    justify-content: flex-end;
+    .print_btn {
+      align-self: flex-end;
+      width: fit-content;
+    }
+  }
 }
 
 .reportEnvironment {
-    padding: 10px 20px;
+  padding: 10px 20px;
 
-    &-block {
-        display: flex;
-        gap: 30px;
-        flex-wrap: wrap;
-        
-        &-title {
-            width: 30%;
-            font-weight: 700;
-            color: $primary-green;
-            padding-left: 10px;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            border-bottom: solid 3px $primary-green;
-        }
-        
-        .graphCard {
-            width: 45%;
-            background-color: $secondary-blue;
-        }
+  &-block {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    &-title {
+      width: 30%;
+      font-weight: 700;
+      color: $primary-green;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: solid 3px $primary-green;
     }
 
-    &-table-group {
-        margin-bottom: 20px;
-        &-title {
-            font-weight: 500;
-            font-size: 20px;
-            color: #abaeb7;
-            margin-bottom: 20px;
-        }
+    .graphCard {
+      width: 45%;
+      background-color: $secondary-blue;
+    }
+  }
 
-        .react-bootstrap-table {
-            font-size: 14px;
-            text-align: center;
-            table {
-                thead {
-                    tr {
-                        th {
-                            color: #505D69;
-                        }
-                    }       
-                }
-                tbody {
-                    tr {
-                        td {
-                            background-color: white;
-                            color: #505D69
-                        }
-                    }
-                }
+  &-table-group {
+    margin-bottom: 20px;
+    &-title {
+      font-weight: 500;
+      font-size: 20px;
+      color: #abaeb7;
+      margin-bottom: 20px;
+    }
+
+    .react-bootstrap-table {
+      font-size: 14px;
+      text-align: center;
+      table {
+        thead {
+          tr {
+            th {
+              color: #505d69;
             }
+          }
         }
+        tbody {
+          tr {
+            td {
+              background-color: white;
+              color: #505d69;
+            }
+          }
+        }
+      }
     }
+  }
 }
