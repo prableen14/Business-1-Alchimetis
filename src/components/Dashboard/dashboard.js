@@ -35,7 +35,7 @@ const Dashboard = (props) => {
     { dataField: "off-track targets", text: "Off-track targets", sort: true },
     { dataField: "overdue metrics", text: "Overdue metrics", sort: true },
     {
-      dataField: "Non-compliant policies",
+      dataField: "non-compliant policies",
       text: "Non-compliant policies",
       sort: true,
     },
@@ -163,31 +163,31 @@ const Dashboard = (props) => {
           <div className="notification__todo">
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
+              title="Choose a policy to invest in"
               date="Jan 18"
               time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
+              title="Choose an industry to disrupt"
               date="Jan 18"
               time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
+              title="Discussion on environmental policies"
               date="Jan 18"
               time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
+              title="Address social concerns"
               date="Jan 18"
               time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title="Choose perfect product idea"
+              title="Social uprising in X country"
               date="Jan 18"
               time="5:00 pm"
             />
