@@ -1,4 +1,7 @@
-import React, { lazy, useEffect } from "react";
+import React from "react";
+
+import "./style.scss";
+
 import {
   Title,
   TextAndImage,
@@ -7,14 +10,12 @@ import {
 } from "../../atoms/index.js";
 import { GraphCard } from "../../molecules/index.js";
 import homeSvg from "../../assets/images/HomeDark.svg";
-import "./style.scss";
 import DataSummary from "../../data/Data_summary.json";
 import UsernameDisplay from "../Utils/displayUsername.js";
-
 import HollowPieChart from "../../atoms/HollowPieChart/index.js";
 import { capitalizeFirstChar } from "../Utils/utils.js";
+
 const Dashboard = (props) => {
-  // const { csv, setCSV } = useCsvParser('/temp.csv');
   const tableCol = [
     {
       dataField: "goal",
