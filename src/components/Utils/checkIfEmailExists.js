@@ -4,7 +4,7 @@ import { database } from '../../firebase';
 const checkIfEmailExists = async (email) => {
   try {
     const usersCollection = collection(database, 'users');
-    const userQuery = query(usersCollection, where('email', '==', email));
+    const userQuery = query(usersCollection, where('email', '==', email.toLowerCase()));
     const userQuerySnapshot = await getDocs(userQuery);
     if (userQuerySnapshot.size > 0) {
       return true;
