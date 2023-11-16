@@ -67,22 +67,22 @@ const ReportEnvironment = ({ data }) => {
     setFinalData(result);
   }, []);
   return (
-    <div className='reportEnvironment'>
-      <div className='reportEnvironment-group'>
-        <div className='reportEnvironment-block-title'>Carbon footprint</div>
-        <div className='reportEnvironment-block'>
+    <div className="reportEnvironment">
+      <div className="reportEnvironment-group">
+        <div className="reportEnvironment-block-title">Carbon footprint</div>
+        <div className="reportEnvironment-block">
           <GraphCard
             content={
               <MultiFormGraph
                 data={getLatestData(data, "e", "co2", "groups").data}
                 charts={[
-                  { dataKey: "co2", type: "bar" },
-                  { dataKey: "co2Prev", type: "line" },
+                  { dataKey: "co2", type: "bar", name: "co2" },
+                  { dataKey: "co2Prev", type: "line", name: "co2 previous" },
                 ]}
                 xaxisDataKey={"group"}
               />
             }
-            label='Activity by groups - Current and Previous CO2'
+            label="Activity by groups - Current and Previous CO2"
           />
           <GraphCard
             content={
@@ -93,10 +93,10 @@ const ReportEnvironment = ({ data }) => {
                 label={true}
               />
             }
-            label='Activity by groups - Proportion'
+            label="Activity by groups - Proportion"
           />
         </div>
-        <div className='reportEnvironment-block'>
+        <div className="reportEnvironment-block">
           <GraphCard
             content={
               <PieChart
@@ -106,24 +106,24 @@ const ReportEnvironment = ({ data }) => {
                 label={true}
               />
             }
-            label='Activity by locations - Proportion'
+            label="Activity by locations - Proportion"
           />
           <GraphCard
             content={
               <MultiFormGraph
                 data={getLatestData(data, "e", "co2", "location").data}
                 charts={[
-                  { dataKey: "co2", type: "area" },
-                  { dataKey: "co2Prev", type: "line" },
+                  { dataKey: "co2", type: "area", name: "co2" },
+                  { dataKey: "co2Prev", type: "line", name: "co2 previous" },
                 ]}
                 xaxisDataKey={"location"}
               />
             }
-            label='Activity by Locations - Current and Previous CO2'
+            label="Activity by Locations - Current and Previous CO2"
           />
         </div>
 
-        <div className='reportEnvironment-block'>
+        <div className="reportEnvironment-block">
           <GraphCard
             content={
               <BarGraph
@@ -133,9 +133,10 @@ const ReportEnvironment = ({ data }) => {
                 twoBars={true}
                 dataKey2={"co2Prev"}
                 radius={0}
+                name2={"co2 previous"}
               />
             }
-            label='Activity by scope - Current and Previous CO2'
+            label="Activity by scope - Current and Previous CO2"
           />
           <GraphCard
             content={
@@ -146,12 +147,12 @@ const ReportEnvironment = ({ data }) => {
                 label={true}
               />
             }
-            label='Activity by scope- Proportion'
+            label="Activity by scope- Proportion"
           />
         </div>
         {getLatestData(data, "e", "co2", "datatype") && (
-          <div className='reportEnvironment-table-group'>
-            <div className='reportEnvironment-table-group-title'>
+          <div className="reportEnvironment-table-group">
+            <div className="reportEnvironment-table-group-title">
               CO2 Emission by group
             </div>
             <Table
@@ -161,14 +162,14 @@ const ReportEnvironment = ({ data }) => {
           </div>
         )}
       </div>
-      <div className='reportEnvironment-group'>
+      <div className="reportEnvironment-group">
         <div
-          className='reportEnvironment-block-title'
+          className="reportEnvironment-block-title"
           style={{ color: "#564ab1", borderColor: "#564ab1" }}
         >
           Energy Management
         </div>
-        <div className='reportEnvironment-block'>
+        <div className="reportEnvironment-block">
           <GraphCard
             content={
               <MultiFormGraph
@@ -184,7 +185,7 @@ const ReportEnvironment = ({ data }) => {
                 xaxisDataKey={"time"}
               />
             }
-            label='Energy consumed (GJ)'
+            label="Energy consumed (GJ)"
           />
         </div>
       </div>
