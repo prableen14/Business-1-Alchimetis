@@ -17,35 +17,43 @@ const Dashboard = (props) => {
   // const { csv, setCSV } = useCsvParser('/temp.csv');
   const tableCol = [
     {
-      dataField: "Data Type",
-      text: "Type",
+      dataField: "goal",
+      text: "Goal",
     },
-    { dataField: "Unit", text: "Unit" },
-    { dataField: "Amount", text: "Amount", sort: true },
+    { dataField: "classification", text: "Classification" },
+    { dataField: "status", text: "Status" },
     {
-      dataField: "Energy Consumed  (GJ)",
-      text: "Energy Consumed  (GJ)",
+      dataField: "progress",
+      text: "Progress",
       sort: true,
     },
     {
-      dataField: "Energy Produced (GJ)",
-      text: "Energy Produced (GJ)",
+      dataField: "off-track goals",
+      text: "Off-track goals",
       sort: true,
     },
-    { dataField: "Cost (USD)", text: "Cost (USD)", sort: true },
+    { dataField: "off-track targets", text: "Off-track targets", sort: true },
+    { dataField: "overdue metrics", text: "Overdue metrics", sort: true },
+    {
+      dataField: "Non-compliant policies",
+      text: "Non-compliant policies",
+      sort: true,
+    },
+    { dataField: "high risk", text: "High risk", sort: true },
+    { dataField: "failed controls", text: "Failed controls", sort: true },
   ];
 
   return (
-    <div className='DashBoard'>
+    <div className="DashBoard">
       <Title
-        title='Dashboard'
-        size='medium'
+        title="Dashboard"
+        size="medium"
         subtitle={`Welcome back  ${capitalizeFirstChar(UsernameDisplay())}`}
       />
 
-      <div className='analytics-group-card'>
-        <div className='analytics-group-card-title'>Overview</div>
-        <div className='analytics-group'>
+      <div className="analytics-group-card">
+        <div className="analytics-group-card-title">Overview</div>
+        <div className="analytics-group">
           <GraphCard
             content={
               <HollowPieChart
@@ -57,11 +65,11 @@ const Dashboard = (props) => {
                   {
                     name: "Yellow",
                     value: 5,
-                  }
+                  },
                 ]}
               />
             }
-            label='All'
+            label="All"
           />
 
           <GraphCard
@@ -75,11 +83,11 @@ const Dashboard = (props) => {
                   {
                     name: "Yellow",
                     value: 3,
-                  }
+                  },
                 ]}
               />
             }
-            label='Environment'
+            label="Environment"
           />
 
           <GraphCard
@@ -93,10 +101,10 @@ const Dashboard = (props) => {
                   {
                     name: "Yellow",
                     value: 2,
-                  }
+                  },
                 ]}
-                />
-              }
+              />
+            }
             label="Social"
           />
           <GraphCard
@@ -106,82 +114,82 @@ const Dashboard = (props) => {
                   {
                     name: "Green",
                     value: 6,
-                  }
+                  },
                 ]}
               />
             }
-            label='Governance'
+            label="Governance"
           />
         </div>
       </div>
 
-      <div className='table-group'>
-        <div className='table-group-title'>Top Level Goals Summary</div>
+      <div className="table-group">
+        <div className="table-group-title">Top Level Goals Summary</div>
         <Table data={DataSummary} columns={tableCol} />
       </div>
 
-      <div className='notification'>
-        <div className='notification_chatsub'>
-          <Title title='Recent Messages' size='medium' />
-          <div className='notification__chat'>
+      <div className="notification">
+        <div className="notification_chatsub">
+          <Title title="Recent Messages" size="medium" />
+          <div className="notification__chat">
             <MessagePreview
-              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
-              name='Jenny Fox'
-              message='Update on marketing campaign'
-              time='2:32pm'
+              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
+              name="Jenny Fox"
+              message="Update on marketing campaign"
+              time="2:32pm"
             />
             <MessagePreview
-              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
-              name='Jenny Fox'
-              message='Update on marketing campaign'
-              time='2:32pm'
+              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
+              name="Jenny Fox"
+              message="Update on marketing campaign"
+              time="2:32pm"
             />
             <MessagePreview
-              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
-              name='Jenny Fox'
-              message='Update on marketing campaign'
-              time='2:32pm'
+              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
+              name="Jenny Fox"
+              message="Update on marketing campaign"
+              time="2:32pm"
             />
             <MessagePreview
-              imgSrc='https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg'
-              name='Jenny Fox'
-              message='Update on marketing campaign'
-              time='2:32pm'
+              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
+              name="Jenny Fox"
+              message="Update on marketing campaign"
+              time="2:32pm"
             />
           </div>
         </div>
-        <div className='notification_todosub'>
-          <Title title='Your to-do list' size='medium' />
-          <div className='notification__todo'>
+        <div className="notification_todosub">
+          <Title title="Your to-do list" size="medium" />
+          <div className="notification__todo">
             <TextAndImage
               imgSrc={homeSvg}
-              title='Choose perfect product idea'
-              date='Jan 18'
-              time='5:00 pm'
+              title="Choose perfect product idea"
+              date="Jan 18"
+              time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title='Choose perfect product idea'
-              date='Jan 18'
-              time='5:00 pm'
+              title="Choose perfect product idea"
+              date="Jan 18"
+              time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title='Choose perfect product idea'
-              date='Jan 18'
-              time='5:00 pm'
+              title="Choose perfect product idea"
+              date="Jan 18"
+              time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title='Choose perfect product idea'
-              date='Jan 18'
-              time='5:00 pm'
+              title="Choose perfect product idea"
+              date="Jan 18"
+              time="5:00 pm"
             />
             <TextAndImage
               imgSrc={homeSvg}
-              title='Choose perfect product idea'
-              date='Jan 18'
-              time='5:00 pm'
+              title="Choose perfect product idea"
+              date="Jan 18"
+              time="5:00 pm"
             />
           </div>
         </div>
