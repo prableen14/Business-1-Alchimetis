@@ -133,27 +133,27 @@ const Dashboard = (props) => {
           <Title title="Recent Messages" size="medium" />
           <div className="notification__chat">
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
+              imgSrc="https://api.dicebear.com/7.x/thumbs/svg?seed=Jenny+Fox"
               name="Jenny Fox"
-              message="Update on marketing campaign"
+              message="Governance project 101."
               time="2:32pm"
             />
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
+              imgSrc="https://api.dicebear.com/7.x/thumbs/svg?seed=Jason"
+              name="Jason"
+              message="Carbon emission report."
               time="2:32pm"
             />
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
+              imgSrc="https://api.dicebear.com/7.x/thumbs/svg?seed=Jimmy"
+              name="Jimmy"
+              message="Policies are great!"
               time="2:32pm"
             />
             <MessagePreview
-              imgSrc="https://i.pinimg.com/originals/17/e1/7e/17e17e558fe2269e93b0412182301a69.jpg"
-              name="Jenny Fox"
-              message="Update on marketing campaign"
+              imgSrc="https://api.dicebear.com/7.x/thumbs/svg?seed=Eli"
+              name="Eli"
+              message="New project upcoming to uproot governance."
               time="2:32pm"
             />
           </div>
