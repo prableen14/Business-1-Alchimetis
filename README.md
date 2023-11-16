@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Alchimetis - ESG Report Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a web application for generating Environmental, Social, and Governance (ESG) reports. It allows users to upload CSV files, transforms the data, and displays the report in the Global Reporting Initiative (GRI) format. Additionally, users can download both the raw data and the generated report in CSV and PDF formats.
 
-## Available Scripts
+## Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Firebase Configuration](#firebase-configuration)
 
-In the project directory, you can run:
+## Features
+- Upload CSV files for data input.
+- Transformation of data to create GRI format reports.
+- Download raw data and generated reports in CSV and PDF formats.
+- User authentication using Firebase.
 
-### `npm start`
+## Tech Stack
+- React.js
+- Bootstrap
+- Sass
+- Firebase (for authentication and data storage)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/Business-1-Alchimetis.git
+    ```
+2. Install dependencies:
+    ```bash
+    cd Business-1-Alchimetis
+    npm install
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
+1. Start the development server:
+    ```bash
+    npm run start
+    ```
+2. Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
-### `npm test`
+## Firebase Configuration
+This project uses Firebase for authentication and data storage. To configure Firebase for your project, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Create a Firebase project at [https://console.firebase.google.com/](https://console.firebase.google.com/).
+2. Obtain your Firebase project configuration.
+3. Create a file named `.env` in the project root and add your Firebase configuration:
+    ```
+    REACT_APP_FIREBASE_API_KEY=your-api-key
+    REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+    REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+    REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+    REACT_APP_FIREBASE_APP_ID=your-app-id
+    ```
+4. Enable the authentication and Firestore services in your Firebase project.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
