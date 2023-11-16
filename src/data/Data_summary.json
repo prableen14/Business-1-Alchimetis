@@ -1,258 +1,82 @@
 [
- {
-   "Data Type": "Business flights [miles]",
-   "Unit": "miles",
-   "Amount": "15,000",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "30,000"
- },
- {
-   "Data Type": "Community Investment [$]",
-   "Unit": "$",
-   "Amount": "21,352,352",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Community Investment [hours]",
-   "Unit": "hours",
-   "Amount": "4",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Diesel - Light Trucks [gal]",
-   "Unit": "gal",
-   "Amount": "399,985",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Diesel Stationary [L]",
-   "Unit": "L",
-   "Amount": "11,155",
-   "Energy Consumed  (GJ)": "429",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "48,666"
- },
- {
-   "Data Type": "Diesel Transport [gal]",
-   "Unit": "gal",
-   "Amount": "28,779",
-   "Energy Consumed  (GJ)": "4,190",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "59,553"
- },
- {
-   "Data Type": "District Heating [kWh]",
-   "Unit": "kWh",
-   "Amount": "12,874",
-   "Energy Consumed  (GJ)": "46",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Electricity - Green [kWh]",
-   "Unit": "kWh",
-   "Amount": "1,620,930",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Electricity [kWh]",
-   "Unit": "kWh",
-   "Amount": "219,877,229",
-   "Energy Consumed  (GJ)": "791,558",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "47,269,097"
- },
- {
-   "Data Type": "E-waste [t]",
-   "Unit": "t",
-   "Amount": "2,013",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "181,070"
- },
- {
-   "Data Type": "Floor Space [m2] (as at Aug 2023)",
-   "Unit": "m2",
-   "Amount": "6,891",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Floor Space [sqft] (as at Aug 2023)",
-   "Unit": "sqft",
-   "Amount": "1,188,672",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Headcount [Employees]",
-   "Unit": "Employees",
-   "Amount": "13,791",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Health and Safety",
-   "Unit": "hours",
-   "Amount": "43,070",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Kerosene - for Aircraft - Avtur [L]",
-   "Unit": "L",
-   "Amount": "140,677",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "118,018"
- },
- {
-   "Data Type": "Natural Gas [cf]",
-   "Unit": "cf",
-   "Amount": "258,949,463",
-   "Energy Consumed  (GJ)": "280,310",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "2,485,290"
- },
- {
-   "Data Type": "Natural Gas [GJ]",
-   "Unit": "GJ",
-   "Amount": "12,715",
-   "Energy Consumed  (GJ)": "12,715",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "4,384"
- },
- {
-   "Data Type": "Natural Gas [therms]",
-   "Unit": "therms",
-   "Amount": "1,782,584",
-   "Energy Consumed  (GJ)": "188,072",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "2,267,432"
- },
- {
-   "Data Type": "Paper [kg]",
-   "Unit": "kg",
-   "Amount": "509",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Paper Purchased [kg]",
-   "Unit": "kg",
-   "Amount": "1,013",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Refrigerant HFC-143a [kg]",
-   "Unit": "kg",
-   "Amount": "1,659",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Refrigerant R22 [kg]",
-   "Unit": "kg",
-   "Amount": "2,890",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Steam [MMBtu]",
-   "Unit": "MMBtu",
-   "Amount": "7,307",
-   "Energy Consumed  (GJ)": "7,709",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Steam [therms]",
-   "Unit": "therms",
-   "Amount": "178,793",
-   "Energy Consumed  (GJ)": "18,863",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "560,850"
- },
- {
-   "Data Type": "Waste - General [lbs]",
-   "Unit": "lbs",
-   "Amount": "95,342",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "7,610"
- },
- {
-   "Data Type": "Waste - General [tons]",
-   "Unit": "tons",
-   "Amount": "1,641",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "224,333"
- },
- {
-   "Data Type": "Waste - Landfill [kg]",
-   "Unit": "kg",
-   "Amount": "791,615",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Waste - Landfill [t]",
-   "Unit": "t",
-   "Amount": "225",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "16"
- },
- {
-   "Data Type": "Waste Recycled - Commingled [lbs]",
-   "Unit": "lbs",
-   "Amount": "693,774",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "0"
- },
- {
-   "Data Type": "Water [gal]",
-   "Unit": "gal",
-   "Amount": "49,182",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "4,289"
- },
- {
-   "Data Type": "Water [kL]",
-   "Unit": "kL",
-   "Amount": "251",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "2,603"
- },
- {
-   "Data Type": "Water [m3]",
-   "Unit": "m3",
-   "Amount": "662,898",
-   "Energy Consumed  (GJ)": "0",
-   "Energy Produced (GJ)": 0,
-   "Cost (USD)": "364,118"
- }
+  {
+    "Data Type": "Renewable Energy Usage",
+    "Unit": "kWh",
+    "Amount": "1,500,000",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": "5,400",
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Carbon Emissions Reduced",
+    "Unit": "t",
+    "Amount": "2,500",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Employee Diversity",
+    "Unit": "%",
+    "Amount": "40",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Ethical Sourcing Compliance",
+    "Unit": "%",
+    "Amount": "85",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Community Programs Funded",
+    "Unit": "Programs",
+    "Amount": "15",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "200,000"
+  },
+  {
+    "Data Type": "Eco-Friendly Product Lines Developed",
+    "Unit": "Product Lines",
+    "Amount": "3",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "500,000"
+  },
+  {
+    "Data Type": "Waste Recycled",
+    "Unit": "tons",
+    "Amount": "1,200",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Water Conservation Achieved",
+    "Unit": "kL",
+    "Amount": "10,000",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Training Hours in Ethics & Compliance",
+    "Unit": "hours",
+    "Amount": "5,000",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  },
+  {
+    "Data Type": "Green Building Space",
+    "Unit": "sqft",
+    "Amount": "500,000",
+    "Energy Consumed  (GJ)": "0",
+    "Energy Produced (GJ)": 0,
+    "Cost (USD)": "0"
+  }
 ]
