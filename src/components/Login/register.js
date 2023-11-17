@@ -60,7 +60,7 @@ const Register = (props) => {
       <div className='Login-Page-box'>
         <div id='login-header'>
           <img src={LeafBlue} alt='company leaf blue' />{" "}
-          <Title title='Ecoforce' size='large' />
+          <Title title='Ecofocus' size='large' />
         </div>
         <div>
         <Textbox placeholder={"Enter name"} label='Name' name="name" onChange={handleInputChange} />
