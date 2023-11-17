@@ -32,8 +32,12 @@
     }
 
     .graphCard {
-      width: 45%;
+      width: 100%;
       background-color: $secondary-blue;
+      
+      @media (min-width: 1024px) {
+        width: 45%;
+      }
     }
   }
 
