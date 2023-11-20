@@ -5,6 +5,7 @@ import {
   Pie,
   Cell,
   Tooltip,
+  Legend,
 } from "recharts";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -28,7 +29,7 @@ export default function HollowPieChart({ data, dataKey, label = false }) {
           ))}
         </Pie>
         <Tooltip />
-        <div>100</div>
+        <Legend layout="vertical" verticalAlign="bottom" />
       </ReChartPieChart>
     </ResponsiveContainer>
   );
