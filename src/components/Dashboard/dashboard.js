@@ -53,7 +53,7 @@ const Dashboard = (props) => {
       />
 
       <div className="analytics-group-card">
-        <div className="analytics-group-card-title">Overview</div>
+        <div className="analytics-group-card-title">Statuses</div>
         <div className="analytics-group">
           <GraphCard
             content={
