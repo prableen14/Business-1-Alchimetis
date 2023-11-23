@@ -8,7 +8,7 @@ import {
   Legend,
 } from "recharts";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = ["#06BA63", "#FFCA3A", "#FFBB28", "#FF8042"];
 
 export default function HollowPieChart({ data, dataKey, label = false }) {
   return (
